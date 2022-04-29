@@ -21,7 +21,14 @@ namespace prjAps
             txt_cidade.Text = city;
             IPAddress[] ip = Dns.GetHostAddresses(Dns.GetHostName());
             txt_IP.Text = $"{ip[1].ToString()}";
-            txt_ID.Text = $"{name[0]}IDP{lastname[0]}{typeUser}{ip[1]}";
+            if (name == "" && lastname == "")
+            {
+                txt_ID.Text = $"IDP{typeUser}{ip[1]}";
+            }
+            else
+            {
+                txt_ID.Text = $"{name[0]}IDP{lastname[0]}{typeUser}{ip[1]}";
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -91,7 +98,6 @@ namespace prjAps
                 FormChat frmChat = new FormChat();
                 frmChat.Show();
             }
-            
         }
     }
 }
