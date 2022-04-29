@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Panel panel_atendimentos;
+            this.atendimentoLog = new System.Windows.Forms.TextBox();
             this.panel_info = new System.Windows.Forms.Panel();
             this.txt_ID = new System.Windows.Forms.Label();
             this.txt_IP = new System.Windows.Forms.Label();
@@ -52,16 +53,33 @@
             this.link_chat = new System.Windows.Forms.LinkLabel();
             this.panel_lblAtendimento = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textLog = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnEnviar = new System.Windows.Forms.Button();
             panel_atendimentos = new System.Windows.Forms.Panel();
+            panel_atendimentos.SuspendLayout();
             this.panel_info.SuspendLayout();
             this.panel_lblChats.SuspendLayout();
             this.panel_chats.SuspendLayout();
             this.panel_lblAtendimento.SuspendLayout();
-            panel_atendimentos.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel_atendimentos
+            // 
+            panel_atendimentos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            panel_atendimentos.Controls.Add(this.atendimentoLog);
+            panel_atendimentos.Location = new System.Drawing.Point(155, 143);
+            panel_atendimentos.Name = "panel_atendimentos";
+            panel_atendimentos.Size = new System.Drawing.Size(781, 337);
+            panel_atendimentos.TabIndex = 4;
+            // 
+            // atendimentoLog
+            // 
+            this.atendimentoLog.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.atendimentoLog.Location = new System.Drawing.Point(-2, -2);
+            this.atendimentoLog.Multiline = true;
+            this.atendimentoLog.Name = "atendimentoLog";
+            this.atendimentoLog.ReadOnly = true;
+            this.atendimentoLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.atendimentoLog.Size = new System.Drawing.Size(782, 337);
+            this.atendimentoLog.TabIndex = 0;
             // 
             // panel_info
             // 
@@ -175,6 +193,7 @@
             this.txt_nome.Size = new System.Drawing.Size(42, 16);
             this.txt_nome.TabIndex = 0;
             this.txt_nome.Text = "Null...";
+            this.txt_nome.Click += new System.EventHandler(this.txt_nome_Click);
             // 
             // lbl_ID
             // 
@@ -301,7 +320,7 @@
             this.panel_chats.Controls.Add(this.link_chat);
             this.panel_chats.Location = new System.Drawing.Point(12, 143);
             this.panel_chats.Name = "panel_chats";
-            this.panel_chats.Size = new System.Drawing.Size(136, 345);
+            this.panel_chats.Size = new System.Drawing.Size(136, 337);
             this.panel_chats.TabIndex = 2;
             // 
             // link_chat
@@ -340,52 +359,12 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Atendimentos Realizados";
             // 
-            // panel_atendimentos
-            // 
-            panel_atendimentos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            panel_atendimentos.Controls.Add(this.btnEnviar);
-            panel_atendimentos.Controls.Add(this.textBox1);
-            panel_atendimentos.Controls.Add(this.textLog);
-            panel_atendimentos.Location = new System.Drawing.Point(155, 143);
-            panel_atendimentos.Name = "panel_atendimentos";
-            panel_atendimentos.Size = new System.Drawing.Size(781, 345);
-            panel_atendimentos.TabIndex = 4;
-            // 
-            // textLog
-            // 
-            this.textLog.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textLog.Location = new System.Drawing.Point(-3, -2);
-            this.textLog.Multiline = true;
-            this.textLog.Name = "textLog";
-            this.textLog.ReadOnly = true;
-            this.textLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textLog.Size = new System.Drawing.Size(782, 305);
-            this.textLog.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(3, 309);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(634, 29);
-            this.textBox1.TabIndex = 1;
-            // 
-            // btnEnviar
-            // 
-            this.btnEnviar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnviar.Location = new System.Drawing.Point(643, 309);
-            this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(131, 29);
-            this.btnEnviar.TabIndex = 5;
-            this.btnEnviar.Text = "Enviar";
-            this.btnEnviar.UseVisualStyleBackColor = true;
-            // 
             // FormAnalista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(948, 500);
+            this.ClientSize = new System.Drawing.Size(948, 492);
             this.Controls.Add(panel_atendimentos);
             this.Controls.Add(this.panel_lblAtendimento);
             this.Controls.Add(this.panel_chats);
@@ -394,6 +373,8 @@
             this.Name = "FormAnalista";
             this.Text = "Denúncias Florestais";
             this.Load += new System.EventHandler(this.FormAnalista_Load);
+            panel_atendimentos.ResumeLayout(false);
+            panel_atendimentos.PerformLayout();
             this.panel_info.ResumeLayout(false);
             this.panel_info.PerformLayout();
             this.panel_lblChats.ResumeLayout(false);
@@ -402,8 +383,6 @@
             this.panel_chats.PerformLayout();
             this.panel_lblAtendimento.ResumeLayout(false);
             this.panel_lblAtendimento.PerformLayout();
-            panel_atendimentos.ResumeLayout(false);
-            panel_atendimentos.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -433,8 +412,6 @@
         private System.Windows.Forms.Label txt_regiao;
         private System.Windows.Forms.Label txt_cidade;
         private System.Windows.Forms.Label txt_estado;
-        private System.Windows.Forms.Button btnEnviar;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textLog;
+        private System.Windows.Forms.TextBox atendimentoLog;
     }
 }

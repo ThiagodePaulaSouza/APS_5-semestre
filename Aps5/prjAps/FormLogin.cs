@@ -104,7 +104,7 @@ namespace prjAps
                     }
                     else
                     {
-                        FormChat frmChat = new FormChat();
+                        FormChat frmChat = new FormChat(name, lastname);
                         frmChat.Show();
                     }
                 }

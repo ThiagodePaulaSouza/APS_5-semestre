@@ -13,8 +13,13 @@ namespace prjAps
 {
     public partial class FormAnalista : Form
     {
+        private string NameAnalista, LastnameAnalista;
+
         public FormAnalista(string name, string lastname, string state, string city, int typeUser)
         {
+            this.NameAnalista = name;
+            this.LastnameAnalista = lastname;
+
             InitializeComponent();
             txt_nome.Text = $"{name} {lastname}";
             txt_estado.Text = state;
@@ -31,6 +36,7 @@ namespace prjAps
             }
         }
 
+        #region propriedades
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -70,7 +76,10 @@ namespace prjAps
         {
 
         }
+        private void txt_nome_Click(object sender, EventArgs e)
+        {
 
+        }
         private void txf_IP_TextChanged(object sender, EventArgs e)
         {
 
@@ -85,17 +94,19 @@ namespace prjAps
         {
 
         }
+        #endregion
+        
 
         private void link_chat_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //chamar chat
             if (Application.OpenForms.OfType<FormChat>().Count() > 0 )
             {
-                MessageBox.Show("O CHAT JÁ ESTÁ ABERTO!");
+                MessageBox.Show("O ATENDIMENTO JÁ ESTÁ SENDO REALIZADO!");
             }
             else
             {
-                FormChat frmChat = new FormChat();
+                FormChat frmChat = new FormChat(NameAnalista, LastnameAnalista);
                 frmChat.Show();
             }
         }
