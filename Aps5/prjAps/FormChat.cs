@@ -35,7 +35,7 @@ namespace prjAps
         //passo o nome do usuario por aqui
         public FormChat(string nome, string lastname)
         {
-            this.NomeDoUsuario = nome + lastname;
+            this.NomeDoUsuario = $"{nome} {lastname}";
             Application.ApplicationExit += new EventHandler(OnApplicationExit);
             InitializeComponent();
             if (!Conectado)
@@ -98,8 +98,13 @@ namespace prjAps
 
             while (Conectado)
             {
+                //ERRO 
+                //- ele não notifica quando sai/ não sai dai fica preso aqui
+
                 //exibe mensagem no txtLog
                 this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { StrRecebe.ReadLine() });
+
+                //ERRO 
             }
         }
 

@@ -24,6 +24,7 @@ namespace prjAps
             txt_nome.Text = $"{name} {lastname}";
             txt_estado.Text = state;
             txt_cidade.Text = city;
+
             IPAddress[] ip = Dns.GetHostAddresses(Dns.GetHostName());
             txt_IP.Text = $"{ip[1].ToString()}";
             if (name == "" && lastname == "")
@@ -34,68 +35,19 @@ namespace prjAps
             {
                 txt_ID.Text = $"{name[0]}IDP{lastname[0]}{typeUser}{ip[1]}";
             }
+
+            //conectar no server
+            //atualizar log do atendimento
         }
 
         #region propriedades
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txf_nome_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txf_estado_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txf_cidade_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txf_regiao_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txf_longitude_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txf_latitude_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void txt_nome_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void txf_IP_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txf_ID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void FormAnalista_Load(object sender, EventArgs e)
         {
 
         }
+
         #endregion
-        
 
         private void link_chat_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

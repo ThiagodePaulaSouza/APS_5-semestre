@@ -188,12 +188,12 @@
             this.txt_nome.AutoSize = true;
             this.txt_nome.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_nome.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txt_nome.Location = new System.Drawing.Point(130, 3);
+            this.txt_nome.Location = new System.Drawing.Point(130, 0);
             this.txt_nome.Name = "txt_nome";
             this.txt_nome.Size = new System.Drawing.Size(42, 16);
             this.txt_nome.TabIndex = 0;
             this.txt_nome.Text = "Null...";
-            this.txt_nome.Click += new System.EventHandler(this.txt_nome_Click);
+            this.txt_nome.Click += new System.EventHandler(this.FormAnalista_Load);
             // 
             // lbl_ID
             // 
@@ -218,7 +218,6 @@
             this.lbl_IP.Size = new System.Drawing.Size(100, 16);
             this.lbl_IP.TabIndex = 12;
             this.lbl_IP.Text = "IP do Analista:";
-            this.lbl_IP.Click += new System.EventHandler(this.label4_Click);
             // 
             // lbl_latitude
             // 
@@ -255,7 +254,6 @@
             this.lbl_regiao.Size = new System.Drawing.Size(228, 16);
             this.lbl_regiao.TabIndex = 6;
             this.lbl_regiao.Text = "Região de atendimento ao cliente:";
-            this.lbl_regiao.Click += new System.EventHandler(this.label1_Click);
             // 
             // lbl_estadoAnalista
             // 
@@ -372,7 +370,6 @@
             this.Controls.Add(this.panel_info);
             this.Name = "FormAnalista";
             this.Text = "Denúncias Florestais";
-            this.Load += new System.EventHandler(this.FormAnalista_Load);
             panel_atendimentos.ResumeLayout(false);
             panel_atendimentos.PerformLayout();
             this.panel_info.ResumeLayout(false);
