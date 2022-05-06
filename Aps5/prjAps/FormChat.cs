@@ -16,7 +16,7 @@ namespace prjAps
 {
     public partial class FormChat : Form
     {
-        private string NomeDoUsuario /*= pegar nome do analista ou nome do denunciante */;
+        private string NomeDoUsuario /*= pegar nome denunciante */;
         private StreamWriter StwEnvia;
         private StreamReader StrRecebe;
         private TcpClient TcpServidor;
@@ -37,6 +37,8 @@ namespace prjAps
         {
             this.NomeDoUsuario = $"{nome} {lastname}";
             Application.ApplicationExit += new EventHandler(OnApplicationExit);
+
+            //erro
             InitializeComponent();
             if (!Conectado)
             {
@@ -69,7 +71,7 @@ namespace prjAps
                 MsgThread.IsBackground = true;
                 MsgThread.Start();
             }
-            catch (Exception ex)
+            catch
             {
                 FechaConexao("Não foi possivel estabelecer conexão com o servidor...");
                 return;
@@ -85,6 +87,7 @@ namespace prjAps
             {
                 //atualiza o formulário (do servidor) para informar que está conectado 
                 this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
+                
             }
             else
             {
@@ -95,17 +98,14 @@ namespace prjAps
                 this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { Motivo });
                 return;
             }
-
             while (Conectado)
             {
-                //ERRO 
-                //- ele não notifica quando sai/ não sai dai fica preso aqui
+                //Erro chat n ta fechando
 
                 //exibe mensagem no txtLog
                 this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { StrRecebe.ReadLine() });
-
-                //ERRO 
             }
+
         }
 
         private void AtualizaLog(string strMensagem)
@@ -124,16 +124,12 @@ namespace prjAps
             //fecha os objetos
             Conectado = false;
             TcpServidor.Close();
-            try
-            {
-                StwEnvia.Close();
-                StrRecebe.Close();
-            }
-            catch (Exception ex)
-            {
-                //mostra motivo do porque fechou
-                txtLog.AppendText($"{Motivo} \r\n");
-            }
+            StwEnvia.Close();
+            StrRecebe.Close();
+
+            //mostra motivo do porque fechou
+            txtLog.AppendText($"{Motivo} \r\n");
+            
         }
 
         public void OnApplicationExit(object sender, EventArgs e)
@@ -181,6 +177,11 @@ namespace prjAps
         private void lbl_denunciante_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormChat_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
