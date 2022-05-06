@@ -370,6 +370,7 @@
             this.Controls.Add(this.panel_info);
             this.Name = "FormAnalista";
             this.Text = "Denúncias Florestais";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAnalista_FormClosed);
             panel_atendimentos.ResumeLayout(false);
             panel_atendimentos.PerformLayout();
             this.panel_info.ResumeLayout(false);
