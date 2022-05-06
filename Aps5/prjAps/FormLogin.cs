@@ -75,11 +75,11 @@ namespace prjAps
             state = cbox_estado.Text;
             city = cbox_cidade.Text;
 
-            if (name != null
-                && lastname != null
+            if (name != ""
+                && lastname != ""
                 && (analista == true || denunciante == true)
-                && state != null
-                && city != null)
+                && state != ""
+                && city != "")
             {
                 if (analista == true)
                 {
@@ -92,6 +92,10 @@ namespace prjAps
                     {
                         FormAnalista frmAnalista = new FormAnalista(name, lastname, state, city, type);
                         frmAnalista.ShowDialog();
+                        if (frmAnalista.IsDisposed)
+                        {
+                            Close();
+                        }
                     }
                         
                 }
@@ -106,6 +110,10 @@ namespace prjAps
                     {
                         FormChat frmChat = new FormChat(name, lastname);
                         frmChat.ShowDialog();
+                        if (frmChat.IsDisposed)
+                        {
+                            Close();
+                        }
                     }
                 }
             }
