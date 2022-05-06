@@ -91,7 +91,7 @@ namespace prjAps
                     else
                     {
                         FormAnalista frmAnalista = new FormAnalista(name, lastname, state, city, type);
-                        frmAnalista.Show();
+                        frmAnalista.ShowDialog();
                     }
                         
                 }
@@ -105,7 +105,7 @@ namespace prjAps
                     else
                     {
                         FormChat frmChat = new FormChat(name, lastname);
-                        frmChat.Show();
+                        frmChat.ShowDialog();
                     }
                 }
             }
