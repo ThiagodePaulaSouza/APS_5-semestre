@@ -100,12 +100,11 @@ namespace prjAps
             }
             while (Conectado)
             {
-                //Erro chat n ta fechando
+                //quando loga outro denunciante ele buga (entra em loop)
 
                 //exibe mensagem no txtLog
                 this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { StrRecebe.ReadLine() });
             }
-
         }
 
         private void AtualizaLog(string strMensagem)
