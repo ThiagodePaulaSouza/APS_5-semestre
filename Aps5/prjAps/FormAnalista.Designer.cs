@@ -53,6 +53,8 @@
             this.link_chat = new System.Windows.Forms.LinkLabel();
             this.panel_lblAtendimento = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtMensagem = new System.Windows.Forms.TextBox();
+            this.btnEnviar = new System.Windows.Forms.Button();
             panel_atendimentos = new System.Windows.Forms.Panel();
             panel_atendimentos.SuspendLayout();
             this.panel_info.SuspendLayout();
@@ -64,22 +66,25 @@
             // panel_atendimentos
             // 
             panel_atendimentos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            panel_atendimentos.Controls.Add(this.btnEnviar);
+            panel_atendimentos.Controls.Add(this.txtMensagem);
             panel_atendimentos.Controls.Add(this.atendimentoLog);
             panel_atendimentos.Location = new System.Drawing.Point(155, 143);
             panel_atendimentos.Name = "panel_atendimentos";
-            panel_atendimentos.Size = new System.Drawing.Size(781, 337);
+            panel_atendimentos.Size = new System.Drawing.Size(781, 387);
             panel_atendimentos.TabIndex = 4;
             // 
             // atendimentoLog
             // 
+            this.atendimentoLog.Cursor = System.Windows.Forms.Cursors.Default;
             this.atendimentoLog.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.atendimentoLog.Location = new System.Drawing.Point(-2, -2);
             this.atendimentoLog.Multiline = true;
             this.atendimentoLog.Name = "atendimentoLog";
             this.atendimentoLog.ReadOnly = true;
             this.atendimentoLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.atendimentoLog.Size = new System.Drawing.Size(782, 337);
-            this.atendimentoLog.TabIndex = 0;
+            this.atendimentoLog.Size = new System.Drawing.Size(782, 347);
+            this.atendimentoLog.TabIndex = 9;
             // 
             // panel_info
             // 
@@ -318,7 +323,7 @@
             this.panel_chats.Controls.Add(this.link_chat);
             this.panel_chats.Location = new System.Drawing.Point(12, 143);
             this.panel_chats.Name = "panel_chats";
-            this.panel_chats.Size = new System.Drawing.Size(136, 337);
+            this.panel_chats.Size = new System.Drawing.Size(136, 387);
             this.panel_chats.TabIndex = 2;
             // 
             // link_chat
@@ -330,7 +335,7 @@
             this.link_chat.Location = new System.Drawing.Point(7, 4);
             this.link_chat.Name = "link_chat";
             this.link_chat.Size = new System.Drawing.Size(88, 16);
-            this.link_chat.TabIndex = 0;
+            this.link_chat.TabIndex = 1;
             this.link_chat.TabStop = true;
             this.link_chat.Text = "Denunciante";
             this.link_chat.VisitedLinkColor = System.Drawing.Color.DarkCyan;
@@ -357,12 +362,33 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Atendimentos Realizados";
             // 
+            // txtMensagem
+            // 
+            this.txtMensagem.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMensagem.Location = new System.Drawing.Point(3, 351);
+            this.txtMensagem.Name = "txtMensagem";
+            this.txtMensagem.Size = new System.Drawing.Size(651, 29);
+            this.txtMensagem.TabIndex = 0;
+            this.txtMensagem.Text = " ";
+            this.txtMensagem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMensagem_KeyPress);
+            // 
+            // btnEnviar
+            // 
+            this.btnEnviar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnviar.Location = new System.Drawing.Point(660, 351);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(114, 29);
+            this.btnEnviar.TabIndex = 2;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
+            // 
             // FormAnalista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(948, 492);
+            this.ClientSize = new System.Drawing.Size(948, 542);
             this.Controls.Add(panel_atendimentos);
             this.Controls.Add(this.panel_lblAtendimento);
             this.Controls.Add(this.panel_chats);
@@ -411,5 +437,7 @@
         private System.Windows.Forms.Label txt_cidade;
         private System.Windows.Forms.Label txt_estado;
         private System.Windows.Forms.TextBox atendimentoLog;
+        private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.TextBox txtMensagem;
     }
 }
