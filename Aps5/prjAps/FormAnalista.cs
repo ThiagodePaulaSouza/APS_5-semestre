@@ -57,6 +57,8 @@ namespace prjAps
 
             IPAddress[] ip = Dns.GetHostAddresses(Dns.GetHostName());
             txt_IP.Text = $"{ip[1].ToString()}";
+
+            //refatorar if else
             if (name == "" && lastname == "")
             {
                 txt_ID.Text = $"IDP{typeUser}{ip[1]}";
@@ -98,8 +100,8 @@ namespace prjAps
                 Conectado = true;
 
                 //inicializa componentes
-                //txtMensagem.Enabled = true;
-                //btnEnviar.Enabled = true;
+                txtMensagem.Enabled = true;
+                btnEnviar.Enabled = true;
 
                 //envia o nome do user para o servidor
                 StwEnvia = new StreamWriter(TcpServidor.GetStream());
@@ -175,8 +177,8 @@ namespace prjAps
             //mostra motivo do porque fechou
             atendimentoLog.AppendText($"{Motivo} \r\n");
             //desabilita e abilita os campos apropriados
-            //txtMensagem.Enabled = false;
-            //btnEnviar.Enabled = false;
+            txtMensagem.Enabled = false;
+            btnEnviar.Enabled = false;
 
             //fecha os objetos
             Conectado = false;
@@ -197,7 +199,31 @@ namespace prjAps
         {
             Application.Exit();
         }
-        
+
+        private void EnviaMensagem()
+        {
+            //envia mensagem pro servidor
+            if (txtMensagem.Lines.Length >= 1)
+            {
+                StwEnvia.WriteLine(txtMensagem.Text);
+                StwEnvia.Flush();
+                txtMensagem.Lines = null;
+            }
+            txtMensagem.Text = "";
+        }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            EnviaMensagem();
+        }
+
+        private void txtMensagem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                EnviaMensagem();
+            }
+        }
 
         private void link_chat_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
