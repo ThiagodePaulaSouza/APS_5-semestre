@@ -112,7 +112,7 @@ namespace prjAps
                 MsgThread.IsBackground = true;
                 MsgThread.Start();
             }
-            catch (Exception ex)
+            catch
             {
                 FechaConexao("Não foi possivel estabelecer conexão com o servidor...");
                 return;
@@ -126,6 +126,7 @@ namespace prjAps
 
         private void RecebeMensagem()
         {
+            //erro aqui!
             StrRecebe = new StreamReader(TcpServidor.GetStream());
             string ConResposta = StrRecebe.ReadLine();
 
@@ -136,6 +137,9 @@ namespace prjAps
             {
                 if (ConResposta[0] == '1')
                 {
+                    //NÃO APARECE
+
+
                     //atualiza o formulário (do servidor) para informar que está conectado 
                     this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
                 }
@@ -154,28 +158,34 @@ namespace prjAps
                 }
                 
             }
+            catch{
+                //MessageBox.Show("o problema é \r\n" + ex);
+            }
+            //tirar
+            try
+            {
+                while (Conectado)
+                {
+                    //ERRO 
+                    //provavelmente o erro n é aqui, mas sim no try catch acima
+
+                    // não é possivel chamar invoke em um controle antes da criação do identificador de janela
+
+                    //exibe mensagem no txtLog
+                    this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { StrRecebe.ReadLine() });
+
+                    //ERRO 
+                }
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("o problema é \r\n" + ex);
+                MessageBox.Show("\n" + ex);
             }
-            while (Conectado)
-            {
-                //ERRO 
-                //provavelmente o erro n é aqui, mas sim no try catch acima
-
-                // não é possivel chamar invoke em um controle antes da criação do identificador de janela
-
-                //exibe mensagem no txtLog
-                this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { StrRecebe.ReadLine() });
-
-                //ERRO 
-            }
+            
         }
         
         private void FechaConexao(string Motivo)
         {
-            //mostra motivo do porque fechou
-            atendimentoLog.AppendText($"{Motivo} \r\n");
             //desabilita e abilita os campos apropriados
             txtMensagem.Enabled = false;
             btnEnviar.Enabled = false;
@@ -188,13 +198,12 @@ namespace prjAps
                 StwEnvia.Close();
                 StrRecebe.Close();
             }
-            catch
-            {
-                //mostra motivo do porque fechou
-                atendimentoLog.AppendText($"{Motivo} \r\n");
+            catch{
             }
+            //mostra motivo do porque fechou
+            atendimentoLog.AppendText($"{Motivo} \r\n");
         }
-        
+
         private void FormAnalista_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -219,6 +228,7 @@ namespace prjAps
 
         private void txtMensagem_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // Se precionou a tecla enter
             if (e.KeyChar == (char)13)
             {
                 EnviaMensagem();

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Panel panel_atendimentos;
+            this.btnEnviar = new System.Windows.Forms.Button();
+            this.txtMensagem = new System.Windows.Forms.TextBox();
             this.atendimentoLog = new System.Windows.Forms.TextBox();
             this.panel_info = new System.Windows.Forms.Panel();
             this.txt_ID = new System.Windows.Forms.Label();
@@ -53,8 +55,6 @@
             this.link_chat = new System.Windows.Forms.LinkLabel();
             this.panel_lblAtendimento = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtMensagem = new System.Windows.Forms.TextBox();
-            this.btnEnviar = new System.Windows.Forms.Button();
             panel_atendimentos = new System.Windows.Forms.Panel();
             panel_atendimentos.SuspendLayout();
             this.panel_info.SuspendLayout();
@@ -73,6 +73,27 @@
             panel_atendimentos.Name = "panel_atendimentos";
             panel_atendimentos.Size = new System.Drawing.Size(781, 387);
             panel_atendimentos.TabIndex = 4;
+            // 
+            // btnEnviar
+            // 
+            this.btnEnviar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnviar.Location = new System.Drawing.Point(660, 351);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(114, 29);
+            this.btnEnviar.TabIndex = 2;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
+            // 
+            // txtMensagem
+            // 
+            this.txtMensagem.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMensagem.Location = new System.Drawing.Point(3, 351);
+            this.txtMensagem.Name = "txtMensagem";
+            this.txtMensagem.Size = new System.Drawing.Size(651, 29);
+            this.txtMensagem.TabIndex = 0;
+            this.txtMensagem.Text = " ";
+            this.txtMensagem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMensagem_KeyPress);
             // 
             // atendimentoLog
             // 
@@ -361,27 +382,6 @@
             this.label1.Size = new System.Drawing.Size(169, 16);
             this.label1.TabIndex = 17;
             this.label1.Text = "Atendimentos Realizados";
-            // 
-            // txtMensagem
-            // 
-            this.txtMensagem.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMensagem.Location = new System.Drawing.Point(3, 351);
-            this.txtMensagem.Name = "txtMensagem";
-            this.txtMensagem.Size = new System.Drawing.Size(651, 29);
-            this.txtMensagem.TabIndex = 0;
-            this.txtMensagem.Text = " ";
-            this.txtMensagem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMensagem_KeyPress);
-            // 
-            // btnEnviar
-            // 
-            this.btnEnviar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnviar.Location = new System.Drawing.Point(660, 351);
-            this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(114, 29);
-            this.btnEnviar.TabIndex = 2;
-            this.btnEnviar.Text = "Enviar";
-            this.btnEnviar.UseVisualStyleBackColor = true;
-            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // FormAnalista
             // 
