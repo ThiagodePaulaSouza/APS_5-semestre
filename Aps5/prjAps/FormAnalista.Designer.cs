@@ -148,6 +148,7 @@
             this.txt_longitude.Size = new System.Drawing.Size(42, 16);
             this.txt_longitude.TabIndex = 17;
             this.txt_longitude.Text = "Null...";
+            this.txt_longitude.Click += new System.EventHandler(this.txt_longitude_Click);
             // 
             // txt_regiao
             // 
@@ -371,6 +372,7 @@
             this.Name = "FormAnalista";
             this.Text = "Denúncias Florestais";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAnalista_FormClosed);
+            this.Load += new System.EventHandler(this.FormAnalista_Load);
             panel_atendimentos.ResumeLayout(false);
             panel_atendimentos.PerformLayout();
             this.panel_info.ResumeLayout(false);

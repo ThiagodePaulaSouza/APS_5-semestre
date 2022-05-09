@@ -11,19 +11,24 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Device.Location;
 
 namespace prjAps
 {
     public partial class FormAnalista : Form
     {
+        //GeoCoordinate coord = watcher.Position.Location;
         private string NameAnalista, LastnameAnalista;
-
         private StreamWriter StwEnvia;
         private StreamReader StrRecebe;
         private TcpClient TcpServidor;
-
         private IPAddress EndIP = IPAddress.Parse("127.0.0.1");
         private int PortaHost = 1000;
+
+        // variaveis para latitude e longitude
+        GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
+        private string latitude;
+        private string longitude;
 
         //atualiza formulario com a mensagem de outra thread
         private delegate void AtualizaLogCallBack(string strMensagem);
@@ -32,14 +37,14 @@ namespace prjAps
 
         private bool Conectado;
         private Thread MsgThread;
-
+        
+        
         public FormAnalista(string name, string lastname, string state, string city, int typeUser)
         {
             this.NameAnalista = name;
             this.LastnameAnalista = lastname;
 
             Application.ApplicationExit += new EventHandler(OnApplicationExit);
-
             InitializeComponent();
 
             txt_nome.Text = $"{name} {lastname}";
@@ -71,11 +76,14 @@ namespace prjAps
 
         private void FormAnalista_Load(object sender, EventArgs e)
         {
+            watcher = new GeoCoordinateWatcher();
+            watcher.StatusChanged += Watcher_StatusChanged;
+            watcher.Start();
 
         }
 
         #endregion
-        
+
         public void OnApplicationExit(object sender, EventArgs e)
         {
             if (Conectado)
@@ -89,6 +97,38 @@ namespace prjAps
             }
         }
 
+        private void Watcher_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
+        {
+            try
+            {
+                while (!watcher.Position.Location.IsUnknown) {
+                    if (e.Status == GeoPositionStatus.Ready)
+                    {
+                        if (watcher.Position.Location.IsUnknown)
+                        {
+                            latitude = "0";
+                            longitude = "0";
+                        }
+                        else
+                        {
+                            latitude = watcher.Position.Location.Latitude.ToString();
+                            longitude = watcher.Position.Location.Longitude.ToString();
+                        }
+                    }
+                    else
+                    {
+                        latitude = "0";
+                        longitude = "0";
+                    }
+                }
+            }
+            catch (Exception ex) {
+                latitude = "0";
+                longitude = "0";
+            }
+            txt_latitude.Text = latitude.ToString();
+            txt_longitude.Text = longitude.ToString();
+        }
         private void InicializaConexao()
         {
             try
@@ -197,7 +237,11 @@ namespace prjAps
         {
             Application.Exit();
         }
-        
+
+        private void txt_longitude_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void link_chat_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
