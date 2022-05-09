@@ -52,6 +52,8 @@ namespace prjAps
 
         private void InicializaConexao()
         {
+
+            //fazer MVP de carregamento para inibir o kra abrir antes do analista
             try
             {
                 TcpServidor = new TcpClient();
@@ -82,28 +84,38 @@ namespace prjAps
         {
             StrRecebe = new StreamReader(TcpServidor.GetStream());
             string ConResposta = StrRecebe.ReadLine();
-
-            if (ConResposta[0] == '1')
+            try
             {
-                //atualiza o formulário (do servidor) para informar que está conectado 
-                this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
-                
+                if (ConResposta[0] == '1')
+                {
+                    //atualiza o formulário (do servidor) para informar que está conectado 
+                    this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
+                }
+                else
+                {
+                    string Motivo = "Não Conectado: ";
+                    //extrai o motivo da mensagem resposta o motivo começa no 3char
+                    Motivo += ConResposta.Substring(2, ConResposta.Length - 2);
+                    //atualiza o formulário (do servidor) para informar que está conectado 
+                    this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { Motivo });
+                    return;
+                }
             }
-            else
-            {
-                string Motivo = "Não Conectado: ";
-                //extrai o motivo da mensagem resposta o motivo começa no 3char
-                Motivo += ConResposta.Substring(2, ConResposta.Length - 2);
-                //atualiza o formulário (do servidor) para informar que está conectado 
-                this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { Motivo });
-                return;
+            catch {
             }
-            while (Conectado)
+            try
             {
-                //quando loga outro denunciante ele buga (entra em loop)
+                while (Conectado)
+                {
+                    //quando loga outro denunciante ele buga (entra em loop)
 
-                //exibe mensagem no txtLog
-                this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { StrRecebe.ReadLine() });
+                    //exibe mensagem no txtLog
+                    this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { StrRecebe.ReadLine() });
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("\n" + ex);
             }
         }
 
@@ -114,8 +126,6 @@ namespace prjAps
 
         private void FechaConexao(string Motivo)
         {
-            //mostra motivo do porque fechou
-            txtLog.AppendText($"{Motivo} \r\n");
             //desabilita e abilita os campos apropriados
             txtMensagem.Enabled = false;
             btnEnviar.Enabled = false;
@@ -123,12 +133,15 @@ namespace prjAps
             //fecha os objetos
             Conectado = false;
             TcpServidor.Close();
-            StwEnvia.Close();
-            StrRecebe.Close();
-
+            try
+            {
+                StwEnvia.Close();
+                StrRecebe.Close();
+            }
+            catch{
+            }
             //mostra motivo do porque fechou
             txtLog.AppendText($"{Motivo} \r\n");
-            
         }
 
         public void OnApplicationExit(object sender, EventArgs e)
@@ -160,7 +173,6 @@ namespace prjAps
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            //envia mensagem
             EnviaMensagem();
         }
 
