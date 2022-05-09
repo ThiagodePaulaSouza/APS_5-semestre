@@ -38,18 +38,16 @@
             // txtIP
             // 
             this.txtIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIP.Location = new System.Drawing.Point(17, 16);
-            this.txtIP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIP.Location = new System.Drawing.Point(13, 13);
             this.txtIP.Name = "txtIP";
-            this.txtIP.Size = new System.Drawing.Size(300, 34);
+            this.txtIP.Size = new System.Drawing.Size(226, 29);
             this.txtIP.TabIndex = 0;
             this.txtIP.Text = "127.0.0.1";
             // 
             // numPorta
             // 
             this.numPorta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numPorta.Location = new System.Drawing.Point(328, 16);
-            this.numPorta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numPorta.Location = new System.Drawing.Point(246, 13);
             this.numPorta.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -61,7 +59,7 @@
             0,
             0});
             this.numPorta.Name = "numPorta";
-            this.numPorta.Size = new System.Drawing.Size(160, 34);
+            this.numPorta.Size = new System.Drawing.Size(120, 29);
             this.numPorta.TabIndex = 1;
             this.numPorta.Value = new decimal(new int[] {
             1000,
@@ -73,10 +71,9 @@
             // 
             this.btnStartServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartServer.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnStartServer.Location = new System.Drawing.Point(497, 15);
-            this.btnStartServer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStartServer.Location = new System.Drawing.Point(373, 12);
             this.btnStartServer.Name = "btnStartServer";
-            this.btnStartServer.Size = new System.Drawing.Size(265, 37);
+            this.btnStartServer.Size = new System.Drawing.Size(199, 30);
             this.btnStartServer.TabIndex = 2;
             this.btnStartServer.Text = "Start Server";
             this.btnStartServer.UseVisualStyleBackColor = true;
@@ -87,23 +84,23 @@
             this.listaLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listaLog.FormattingEnabled = true;
             this.listaLog.HorizontalScrollbar = true;
-            this.listaLog.ItemHeight = 29;
-            this.listaLog.Location = new System.Drawing.Point(17, 60);
-            this.listaLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listaLog.ItemHeight = 24;
+            this.listaLog.Location = new System.Drawing.Point(13, 49);
             this.listaLog.Name = "listaLog";
-            this.listaLog.Size = new System.Drawing.Size(744, 352);
+            this.listaLog.Size = new System.Drawing.Size(559, 268);
             this.listaLog.TabIndex = 3;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 437);
+            this.ClientSize = new System.Drawing.Size(584, 355);
             this.Controls.Add(this.listaLog);
             this.Controls.Add(this.btnStartServer);
             this.Controls.Add(this.numPorta);
             this.Controls.Add(this.txtIP);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Servidor de Chat";

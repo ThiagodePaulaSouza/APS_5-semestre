@@ -190,6 +190,8 @@
             this.Controls.Add(this.label_estado);
             this.Controls.Add(this.label_sobrenome);
             this.Controls.Add(this.label_nome);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormLogin";
             this.Text = "Login";
             this.ResumeLayout(false);

@@ -394,6 +394,8 @@
             this.Controls.Add(this.panel_chats);
             this.Controls.Add(this.panel_lblChats);
             this.Controls.Add(this.panel_info);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormAnalista";
             this.Text = "Denúncias Florestais";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAnalista_FormClosed);
