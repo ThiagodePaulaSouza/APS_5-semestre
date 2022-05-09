@@ -47,7 +47,7 @@
             this.panel1.Controls.Add(this.lbl_denunciante);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(542, 45);
+            this.panel1.Size = new System.Drawing.Size(488, 45);
             this.panel1.TabIndex = 0;
             // 
             // lbl_denunciante
@@ -55,7 +55,7 @@
             this.lbl_denunciante.AutoSize = true;
             this.lbl_denunciante.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_denunciante.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lbl_denunciante.Location = new System.Drawing.Point(163, 10);
+            this.lbl_denunciante.Location = new System.Drawing.Point(187, 9);
             this.lbl_denunciante.Name = "lbl_denunciante";
             this.lbl_denunciante.Size = new System.Drawing.Size(115, 22);
             this.lbl_denunciante.TabIndex = 0;
@@ -68,7 +68,7 @@
             this.panel2.Controls.Add(this.txtLog);
             this.panel2.Location = new System.Drawing.Point(13, 65);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(542, 531);
+            this.panel2.Size = new System.Drawing.Size(488, 531);
             this.panel2.TabIndex = 1;
             // 
             // txtLog
@@ -80,7 +80,7 @@
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLog.Size = new System.Drawing.Size(542, 532);
+            this.txtLog.Size = new System.Drawing.Size(488, 532);
             this.txtLog.TabIndex = 0;
             // 
             // panel3
@@ -91,7 +91,7 @@
             this.panel3.Controls.Add(this.txtMensagem);
             this.panel3.Location = new System.Drawing.Point(13, 602);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(542, 38);
+            this.panel3.Size = new System.Drawing.Size(488, 38);
             this.panel3.TabIndex = 2;
             // 
             // panel4
@@ -108,9 +108,9 @@
             this.btnEnviar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnEnviar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnviar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnEnviar.Location = new System.Drawing.Point(470, 3);
+            this.btnEnviar.Location = new System.Drawing.Point(387, 3);
             this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(65, 29);
+            this.btnEnviar.Size = new System.Drawing.Size(94, 29);
             this.btnEnviar.TabIndex = 1;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = false;
@@ -121,7 +121,7 @@
             this.txtMensagem.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMensagem.Location = new System.Drawing.Point(38, 3);
             this.txtMensagem.Name = "txtMensagem";
-            this.txtMensagem.Size = new System.Drawing.Size(426, 29);
+            this.txtMensagem.Size = new System.Drawing.Size(343, 29);
             this.txtMensagem.TabIndex = 0;
             this.txtMensagem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMensagem_KeyPress);
             // 
@@ -130,7 +130,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(567, 643);
+            this.ClientSize = new System.Drawing.Size(510, 643);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
