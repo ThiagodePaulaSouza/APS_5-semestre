@@ -52,14 +52,12 @@
             this.panel_lblChats = new System.Windows.Forms.Panel();
             this.lbl_chats = new System.Windows.Forms.Label();
             this.panel_chats = new System.Windows.Forms.Panel();
-            this.link_chat = new System.Windows.Forms.LinkLabel();
             this.panel_lblAtendimento = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             panel_atendimentos = new System.Windows.Forms.Panel();
             panel_atendimentos.SuspendLayout();
             this.panel_info.SuspendLayout();
             this.panel_lblChats.SuspendLayout();
-            this.panel_chats.SuspendLayout();
             this.panel_lblAtendimento.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,9 +75,9 @@
             // btnEnviar
             // 
             this.btnEnviar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnviar.Location = new System.Drawing.Point(660, 351);
+            this.btnEnviar.Location = new System.Drawing.Point(635, 351);
             this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(114, 29);
+            this.btnEnviar.Size = new System.Drawing.Size(139, 29);
             this.btnEnviar.TabIndex = 2;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = true;
@@ -87,10 +85,11 @@
             // 
             // txtMensagem
             // 
+            this.txtMensagem.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMensagem.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMensagem.Location = new System.Drawing.Point(3, 351);
             this.txtMensagem.Name = "txtMensagem";
-            this.txtMensagem.Size = new System.Drawing.Size(651, 29);
+            this.txtMensagem.Size = new System.Drawing.Size(626, 29);
             this.txtMensagem.TabIndex = 0;
             this.txtMensagem.Text = " ";
             this.txtMensagem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMensagem_KeyPress);
@@ -219,7 +218,6 @@
             this.txt_nome.Size = new System.Drawing.Size(42, 16);
             this.txt_nome.TabIndex = 0;
             this.txt_nome.Text = "Null...";
-            this.txt_nome.Click += new System.EventHandler(this.FormAnalista_Load);
             // 
             // lbl_ID
             // 
@@ -341,26 +339,10 @@
             // panel_chats
             // 
             this.panel_chats.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel_chats.Controls.Add(this.link_chat);
             this.panel_chats.Location = new System.Drawing.Point(12, 143);
             this.panel_chats.Name = "panel_chats";
             this.panel_chats.Size = new System.Drawing.Size(136, 387);
             this.panel_chats.TabIndex = 2;
-            // 
-            // link_chat
-            // 
-            this.link_chat.ActiveLinkColor = System.Drawing.Color.Transparent;
-            this.link_chat.AutoSize = true;
-            this.link_chat.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.link_chat.LinkColor = System.Drawing.Color.DarkCyan;
-            this.link_chat.Location = new System.Drawing.Point(7, 4);
-            this.link_chat.Name = "link_chat";
-            this.link_chat.Size = new System.Drawing.Size(88, 16);
-            this.link_chat.TabIndex = 1;
-            this.link_chat.TabStop = true;
-            this.link_chat.Text = "Denunciante";
-            this.link_chat.VisitedLinkColor = System.Drawing.Color.DarkCyan;
-            this.link_chat.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_chat_LinkClicked);
             // 
             // panel_lblAtendimento
             // 
@@ -405,8 +387,6 @@
             this.panel_info.PerformLayout();
             this.panel_lblChats.ResumeLayout(false);
             this.panel_lblChats.PerformLayout();
-            this.panel_chats.ResumeLayout(false);
-            this.panel_chats.PerformLayout();
             this.panel_lblAtendimento.ResumeLayout(false);
             this.panel_lblAtendimento.PerformLayout();
             this.ResumeLayout(false);
@@ -428,7 +408,6 @@
         private System.Windows.Forms.Label lbl_ID;
         private System.Windows.Forms.Label lbl_IP;
         private System.Windows.Forms.Label lbl_chats;
-        private System.Windows.Forms.LinkLabel link_chat;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label txt_nome;
         private System.Windows.Forms.Label txt_ID;
