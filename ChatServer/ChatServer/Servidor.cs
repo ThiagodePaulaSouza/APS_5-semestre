@@ -90,7 +90,7 @@ namespace ChatServer
             StreamWriter swSenderSender;
 
             // Exibe primeiro na aplicação
-            e = new StatusChangedEventArgs("Administrador: " + Mensagem);
+            e = new StatusChangedEventArgs($"Administrador: {Mensagem}");
             OnStatusChanged(e);
 
             // Cria um array de clientes TCPs do tamanho do numero de clientes existentes
@@ -112,7 +112,7 @@ namespace ChatServer
 
                     // Envia a mensagem para o usuário atual no laço
                     swSenderSender = new StreamWriter(tcpClientes[i].GetStream());
-                    swSenderSender.WriteLine("Administrador: " + Mensagem);
+                    swSenderSender.WriteLine($"Administrador: {Mensagem}\n");
                     swSenderSender.Flush();
                     swSenderSender = null;
                 }
@@ -130,7 +130,7 @@ namespace ChatServer
             StreamWriter swSenderSender;
 
             // Primeiro exibe a mensagem na aplicação
-            e = new StatusChangedEventArgs(Origem + " : " + Mensagem);
+            e = new StatusChangedEventArgs($"{Origem}: {Mensagem}");
             OnStatusChanged(e);
 
             // Cria um array de clientes TCPs do tamanho do numero de clientes existentes
@@ -151,7 +151,7 @@ namespace ChatServer
                     }
                     // Envia a mensagem para o usuário atual no laço
                     swSenderSender = new StreamWriter(tcpClientes[i].GetStream());
-                    swSenderSender.WriteLine(Origem + " : " + Mensagem);
+                    swSenderSender.WriteLine($"{Origem}: {Mensagem}");
                     swSenderSender.Flush();
                     swSenderSender = null;
                 }
