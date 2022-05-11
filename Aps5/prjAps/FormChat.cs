@@ -16,13 +16,15 @@ namespace prjAps
 {
     public partial class FormChat : Form
     {
-        private string NomeDoUsuario /*= pegar nome denunciante */;
+        #region Variaveis
+        private string name;
         private StreamWriter StwEnvia;
         private StreamReader StrRecebe;
         private TcpClient TcpServidor;
+
         //definindo o ip e porta global
-        private IPAddress EndIP = IPAddress.Parse("127.0.0.1");
-        private int PortaHost = 1000;
+        private IPAddress EnderecoIP;
+        private int PortaHost;
 
         //atualiza formulario com a mensagem de outra thread
         private delegate void AtualizaLogCallBack(string strMensagem);
@@ -31,14 +33,15 @@ namespace prjAps
 
         private bool Conectado;
         private Thread MsgThread;
+        #endregion
 
+        #region Construtor
         //passo o nome do usuario por aqui
-        public FormChat(string nome, string lastname)
+        public FormChat(string name)
         {
-            this.NomeDoUsuario = $"{nome} {lastname}";
+            this.name = name;
             Application.ApplicationExit += new EventHandler(OnApplicationExit);
 
-            //erro
             InitializeComponent();
             if (!Conectado)
             {
@@ -49,24 +52,33 @@ namespace prjAps
                 FechaConexao("Desconectado a pedido do usuário");
             }
         }
+        #endregion
 
+        #region Conexao com o Servidor / Lógica
+        // Inicia conexão com o servidor
         private void InicializaConexao()
         {
-
-            //fazer MVP de carregamento para inibir o kra abrir antes do analista
             try
             {
+                //hard coded
+                EnderecoIP = IPAddress.Parse("127.0.0.1");
+                PortaHost = 1000;
+
+                //inicia uma nova conexão tcp com o chat server
                 TcpServidor = new TcpClient();
-                TcpServidor.Connect(EndIP, PortaHost);
+                TcpServidor.Connect(EnderecoIP, PortaHost);
                 Conectado = true;
 
                 //inicializa componentes
                 txtMensagem.Enabled = true;
                 btnEnviar.Enabled = true;
+                btnEnviar.ForeColor = Color.Black;
+                btnEnviar.Text = "Enviar";
+                txtLog.Enabled = false;
 
                 //envia o nome do user para o servidor
                 StwEnvia = new StreamWriter(TcpServidor.GetStream());
-                StwEnvia.WriteLine(NomeDoUsuario);
+                StwEnvia.WriteLine(name);
                 StwEnvia.Flush();
 
                 MsgThread = new Thread(new ThreadStart(RecebeMensagem));
@@ -75,91 +87,71 @@ namespace prjAps
             }
             catch
             {
-                FechaConexao("Não foi possivel estabelecer conexão com o servidor...");
-                return;
+                FechaConexao("Não foi possivel estabelecer conexão com o servidor! \r\nClique no botão Reconectar... Para tentar novamente.\r\n");
             }
         }
 
+        // Recebe mensagem do servidor
         private void RecebeMensagem()
         {
+            // Recebe a resposta do servidor
             StrRecebe = new StreamReader(TcpServidor.GetStream());
             string ConResposta = StrRecebe.ReadLine();
-            try
+            // Se o primeiro caractere da resposta é 1 a conexão foi feita com sucesso
+            if (ConResposta[0] == '1')
             {
-                if (ConResposta[0] == '1')
-                {
-                    //atualiza o formulário (do servidor) para informar que está conectado 
-                    this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
-                }
-                else
-                {
-                    string Motivo = "Não Conectado: ";
-                    //extrai o motivo da mensagem resposta o motivo começa no 3char
-                    Motivo += ConResposta.Substring(2, ConResposta.Length - 2);
-                    //atualiza o formulário (do servidor) para informar que está conectado 
-                    this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { Motivo });
-                    return;
-                }
+                //atualiza o formulário (do servidor) para informar que está conectado 
+                this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
             }
-            catch {
-            }
-            try
+            else
             {
-                while (Conectado)
-                {
-                    //quando loga outro denunciante ele buga (entra em loop)
+                // Se o primeiro caractere não for 1 a conexão falhou
+                string Motivo = "Não Conectado: ";
 
-                    //exibe mensagem no txtLog
-                    this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { StrRecebe.ReadLine() });
-                }
+                //extrai o motivo da mensagem resposta o motivo começa no 3char
+                Motivo += ConResposta.Substring(2, ConResposta.Length - 2);
+
+                // Atualiza o formulário com o motivo da falha da conexão
+                this.Invoke(new FechaConexaoCallBack(this.FechaConexao), new object[] { Motivo });
+
+                // Sai do metodo
+                return;
             }
-            catch (Exception ex)
+            // Enquanto estiver conectado lê as linhas que estão chegando do servidor
+            while (Conectado)
             {
-                MessageBox.Show("\n" + ex);
+                //exibe mensagem no txtLog
+                this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { StrRecebe.ReadLine() });
             }
         }
 
-        private void AtualizaLog(string strMensagem)
+        // Fecha a conexão com o servidor
+        private void FechaConexao(string Motivo = null)
         {
-            txtLog.AppendText($"{strMensagem} \r\n");
-        }
+            // se não tiver motivo significa que apenas quer fechar a aplicação
+            if (Motivo != null)
+            {
+                txtLog.AppendText($"{Motivo} \r\n");
+            }
 
-        private void FechaConexao(string Motivo)
-        {
             //desabilita e abilita os campos apropriados
+            btnEnviar.ForeColor = Color.Red;
+            btnEnviar.Text = "Reconectar...";
             txtMensagem.Enabled = false;
-            btnEnviar.Enabled = false;
 
             //fecha os objetos
             Conectado = false;
             TcpServidor.Close();
-            try
+
+            //n foi iniciado
+            if (StwEnvia != null)
             {
                 StwEnvia.Close();
                 StrRecebe.Close();
             }
-            catch{
-            }
-            //mostra motivo do porque fechou
-            txtLog.AppendText($"{Motivo} \r\n");
         }
 
-        public void OnApplicationExit(object sender, EventArgs e)
-        {
-            if (Conectado)
-            {
-                // Fecha as conexões, streams, etc...
-                Conectado = false;
-                StwEnvia.Close();
-                StrRecebe.Close();
-                TcpServidor.Close();
-
-                //labelStatus.Invoke(new Action(() => {
-                //    labelStatus.ForeColor = Color.Green;
-                //    labelStatus.Text = $"Desconectado do servidor de Chat {enderecoIP}:{portaHost}";
-                //}));
-            }
-        }
+        // Envia mensagem ao servidor
         private void EnviaMensagem()
         {
             //envia mensagem pro servidor
@@ -171,9 +163,40 @@ namespace prjAps
             }
             txtMensagem.Text = "";
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        // Atualiza a mensagem no atendimentoLog
+        private void AtualizaLog(string strMensagem)
         {
-            EnviaMensagem();
+            txtLog.AppendText($"{strMensagem} \r\n");
+        }
+        #endregion
+
+        #region Eventos
+        public void OnApplicationExit(object sender, EventArgs e)
+        {
+            if (Conectado)
+            {
+                FechaConexao();
+            }
+        }
+
+        private void FormChat_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            if (btnEnviar.ForeColor == Color.Red)
+            {
+                this.Cursor = Cursors.WaitCursor;
+                InicializaConexao();
+                this.Cursor = Cursors.Default;
+            }
+            else
+            {
+                EnviaMensagem();
+            }
         }
 
         private void txtMensagem_KeyPress(object sender, KeyPressEventArgs e)
@@ -184,15 +207,6 @@ namespace prjAps
                 EnviaMensagem();
             }
         }
-
-        private void lbl_denunciante_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormChat_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
+        #endregion
     }
 }

@@ -60,7 +60,6 @@
             this.lbl_denunciante.Size = new System.Drawing.Size(115, 22);
             this.lbl_denunciante.TabIndex = 0;
             this.lbl_denunciante.Text = "Denunciante";
-            this.lbl_denunciante.Click += new System.EventHandler(this.lbl_denunciante_Click);
             // 
             // panel2
             // 
@@ -74,6 +73,7 @@
             // txtLog
             // 
             this.txtLog.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txtLog.Enabled = false;
             this.txtLog.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLog.Location = new System.Drawing.Point(-2, -3);
             this.txtLog.Multiline = true;
@@ -114,7 +114,7 @@
             this.btnEnviar.TabIndex = 1;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = false;
-            this.btnEnviar.Click += new System.EventHandler(this.button1_Click);
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // txtMensagem
             // 
