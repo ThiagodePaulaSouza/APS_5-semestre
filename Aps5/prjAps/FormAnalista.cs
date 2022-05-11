@@ -17,7 +17,7 @@ namespace prjAps
     public partial class FormAnalista : Form
     {
         #region Variaveis Globais
-        private string name, lastname;
+        private string name;
         private int typeUser;
 
         private StreamWriter StwEnvia;
@@ -37,11 +37,10 @@ namespace prjAps
         #endregion
 
         #region Construtor
-        public FormAnalista(string name, string lastname, string state, string city, int typeUser)
+        public FormAnalista(string name, string state, string city, int typeUser)
         {
             //atualiza variaveis locais
             this.name = name;
-            this.lastname = lastname;
             this.typeUser = typeUser;
 
             Application.ApplicationExit += new EventHandler(OnApplicationExit);
@@ -49,7 +48,7 @@ namespace prjAps
             InitializeComponent();
 
             //carrega dados no form
-            txt_nome.Text = $"{name} {lastname}";
+            txt_nome.Text = name;
             txt_estado.Text = state;
             txt_cidade.Text = city;
 
@@ -87,12 +86,12 @@ namespace prjAps
                 atendimentoLog.Enabled = false;
                 //IP e ID
                 IPAddress[] ip = Dns.GetHostAddresses(Dns.GetHostName());
-                txt_IP.Text = $"{ip[1].ToString()}";
+                txt_IP.Text = ip[1].ToString();
                 txt_ID.Text = $"IDP{typeUser}{ip[1]}";
 
                 //envia o nome do user para o servidor
                 StwEnvia = new StreamWriter(TcpServidor.GetStream());
-                StwEnvia.WriteLine($"{name} {lastname}");
+                StwEnvia.WriteLine(name);
                 StwEnvia.Flush();
 
                 // Inicializa a thread para receber mensagens e nova comunicação
@@ -104,7 +103,6 @@ namespace prjAps
             catch
             {
                 FechaConexao("Não foi possivel estabelecer conexão com o servidor! \r\nClique no botão Reconectar... Para tentar novamente.\r\n");
-
             }
         }
 
