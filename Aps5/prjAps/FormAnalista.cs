@@ -16,7 +16,7 @@ namespace prjAps
 {
     public partial class FormAnalista : Form
     {
-        #region Variaveis Globais
+        #region Variaveis
         private string name;
         private int typeUser;
 
@@ -156,7 +156,6 @@ namespace prjAps
             btnEnviar.Text = "Reconectar...";
 
             txtMensagem.Enabled = false;
-            //btnEnviar.Enabled = false;
             atendimentoLog.Enabled = false;
 
             //fecha os objetos
