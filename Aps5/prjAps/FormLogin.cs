@@ -19,11 +19,6 @@ namespace prjAps
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void RemoveText(TextBox txt, object sender, EventArgs e)
         {
             if (txf_nome.Text == "Digite seu Nome...")
@@ -31,52 +26,27 @@ namespace prjAps
                 txf_nome.Text = "";
             }
         }
+
         public void AddText(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txf_nome.Text))
                 txf_nome.Text = "Enter text here...";
         }
 
-        private void txf_sobrenome_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cb_estado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cb_cidade_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbtnAnalista_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbtnDenuncia_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            string name, lastname, state, city;
+
+            string name, state, city;
             bool analista, denunciante;
             int type;
 
             analista = ratioBtn_analista.Checked;
             denunciante = ratioBtn_denuncia.Checked;
             name = txf_nome.Text;
-            lastname = txf_sobrenome.Text;
-            state = cbox_estado.Text;
-            city = cbox_cidade.Text;
+            state = txf_estado.Text;
+            city = txf_cidade.Text;
 
             if (name != ""
-                && lastname != ""
                 && (analista == true || denunciante == true)
                 && state != ""
                 && city != "")
@@ -90,14 +60,15 @@ namespace prjAps
                     }
                     else
                     {
-                        FormAnalista frmAnalista = new FormAnalista(name, lastname, state, city, type);
+                        Cursor = Cursors.WaitCursor;
+                        FormAnalista frmAnalista = new FormAnalista(name, state, city, type);
+                        Cursor = Cursors.Default;
                         frmAnalista.ShowDialog();
                         if (frmAnalista.IsDisposed)
                         {
-                            Close();
+                            this.Close();
                         }
                     }
-                        
                 }
                 else
                 {
@@ -108,11 +79,13 @@ namespace prjAps
                     }
                     else
                     {
-                        FormChat frmChat = new FormChat(name, lastname);
+                        Cursor = Cursors.WaitCursor;
+                        FormChat frmChat = new FormChat(name);
+                        Cursor = Cursors.Default;
                         frmChat.ShowDialog();
                         if (frmChat.IsDisposed)
                         {
-                            Close();
+                            this.Close();
                         }
                     }
                 }
@@ -121,8 +94,6 @@ namespace prjAps
             {
                 MessageBox.Show("PREENCHA TODOS OS CAMPOS!");
             }
-
         }
     }
-
 }
