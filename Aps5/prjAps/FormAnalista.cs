@@ -159,7 +159,7 @@ namespace prjAps
                 catch (Exception ex)
                 {
                     // Atualiza o formulário com o motivo da falha da conexão
-                    //this.Invoke(new FechaConexaoCallBack(this.FechaConexao), new object[] { "Não foi possivel estabelecer conexão com o servidor! \r\nClique no botão Reconectar... Para tentar novamente.\r\n" });
+                    this.Invoke(new FechaConexaoCallBack(this.FechaConexao), new object[] { "Não foi possivel estabelecer conexão com o servidor! \r\nClique no botão Reconectar... Para tentar novamente.\r\n" });
                     Console.WriteLine("Olha o erro" + ex);
                     //return;
                 }
