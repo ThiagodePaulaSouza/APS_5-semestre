@@ -116,8 +116,13 @@ namespace prjAps
             // Se o primeiro caractere da resposta é 1 a conexão foi feita com sucesso
             if (ConResposta[0] == '1')
             {
-                // Atualiza o formulário (do servidor) para informar que está conectado 
-                this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
+                // Atualiza o formulário (do servidor) para informar que está conectado
+                try { 
+                    this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
+                } catch(Exception ex)
+                {
+                    Console.WriteLine("Olha o erro"+ex);
+                }
             }
             else
             {
@@ -129,7 +134,14 @@ namespace prjAps
                 Motivo += ConResposta.Substring(2, ConResposta.Length - 2);
 
                 // Atualiza o formulário com o motivo da falha da conexão
-                this.Invoke(new FechaConexaoCallBack(this.FechaConexao), new object[] { Motivo });
+                try
+                {
+                    this.Invoke(new FechaConexaoCallBack(this.FechaConexao), new object[] { Motivo });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Olha o erro"+ex);
+                }
 
                 // Sai do método
                 return;
@@ -138,7 +150,14 @@ namespace prjAps
             while (Conectado)
             {
                 // Exibe mensagens no TextBox
-                this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { StrRecebe.ReadLine() });
+                try
+                {
+                    this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { StrRecebe.ReadLine() });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Olha o erro" + ex);
+                }
             }
         }
 
@@ -151,16 +170,16 @@ namespace prjAps
                 atendimentoLog.AppendText($"{Motivo} \r\n");
             }
 
+            //fecha os objetos
+            Conectado = false;
+            TcpServidor.Close();
+
             //desabilita e abilita os campos apropriados
             btnEnviar.ForeColor = Color.Red;
             btnEnviar.Text = "Reconectar...";
 
             txtMensagem.Enabled = false;
             atendimentoLog.Enabled = false;
-
-            //fecha os objetos
-            Conectado = false;
-            TcpServidor.Close();
 
             //n foi iniciado
             if (StwEnvia != null)
@@ -173,15 +192,22 @@ namespace prjAps
         // Envia mensagem ao servidor
         private void EnviaMensagem()
         {
-            //envia mensagem pro servidor
-            if (txtMensagem.Lines.Length >= 1)
+            
+            if(Conectado)
             {
-                StwEnvia.WriteLine(txtMensagem.Text);
-                StwEnvia.Flush();
-                txtMensagem.Lines = null;
-            }
+                //envia mensagem pro servidor
+                if (txtMensagem.Lines.Length >= 1)
+                {
+                    StwEnvia.WriteLine(txtMensagem.Text);
+                    StwEnvia.Flush();
+                    txtMensagem.Lines = null;
+                }
 
-            txtMensagem.Text = "";
+                txtMensagem.Text = "";
+            } else
+            {
+                FechaConexao();
+            }
         }
 
         // Atualiza a mensagem no atendimentoLog
@@ -194,6 +220,15 @@ namespace prjAps
 
         #region Eventos
         public void OnApplicationExit(object sender, EventArgs e)
+        {
+            //testar quando estiver conectado!
+            if (Conectado)
+            {
+                FechaConexao();
+            }
+        }
+
+        private void FormAnalista_Closing(object sender, CancelEventArgs e)
         {
             //testar quando estiver conectado!
             if (Conectado)

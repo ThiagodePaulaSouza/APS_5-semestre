@@ -98,10 +98,18 @@ namespace prjAps
             StrRecebe = new StreamReader(TcpServidor.GetStream());
             string ConResposta = StrRecebe.ReadLine();
             // Se o primeiro caractere da resposta é 1 a conexão foi feita com sucesso
-            if (ConResposta[0] == '1')
+            if (ConResposta[0] == '1' && Conectado == true)
             {
                 //atualiza o formulário (do servidor) para informar que está conectado 
-                this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
+                try
+                {
+                    this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Olha o erro" + ex);
+                }
+                //this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
             }
             else
             {
@@ -112,7 +120,14 @@ namespace prjAps
                 Motivo += ConResposta.Substring(2, ConResposta.Length - 2);
 
                 // Atualiza o formulário com o motivo da falha da conexão
-                this.Invoke(new FechaConexaoCallBack(this.FechaConexao), new object[] { Motivo });
+                try
+                {
+                    this.Invoke(new FechaConexaoCallBack(this.FechaConexao), new object[] { Motivo });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Olha o erro" + ex);
+                }
 
                 // Sai do metodo
                 return;
@@ -121,7 +136,14 @@ namespace prjAps
             while (Conectado)
             {
                 //exibe mensagem no txtLog
-                this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { StrRecebe.ReadLine() });
+                try
+                {
+                    this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { StrRecebe.ReadLine() });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Olha o erro" + ex);
+                }
             }
         }
 
@@ -180,6 +202,15 @@ namespace prjAps
             }
         }
 
+        private void FormChat_Closing(object sender, CancelEventArgs e)
+        {
+            //testar quando estiver conectado!
+            if (Conectado)
+            {
+                FechaConexao();
+            }
+        }
+
         private void FormChat_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -208,5 +239,10 @@ namespace prjAps
             }
         }
         #endregion
+
+        private void FormChat_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
