@@ -114,38 +114,40 @@ namespace prjAps
             string ConResposta = StrRecebe.ReadLine();
 
             // Se o primeiro caractere da resposta é 1 a conexão foi feita com sucesso
-            if (ConResposta[0] == '1')
+            if (ConResposta[0] == '1' && Conectado == true)
             {
                 // Atualiza o formulário (do servidor) para informar que está conectado
-                try { 
-                    this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
-                } catch(Exception ex)
+                try
                 {
-                    Console.WriteLine("Olha o erro"+ex);
+                    this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Olha o erro" + ex);
                 }
             }
             else
             {
                 // Se o primeiro caractere não for 1 a conexão falhou
-
                 string Motivo = "Não Conectado: ";
 
                 // Extrai o motivo da mensagem resposta. O motivo começa no 3o. caractere
                 Motivo += ConResposta.Substring(2, ConResposta.Length - 2);
 
-                // Atualiza o formulário com o motivo da falha da conexão
                 try
                 {
                     this.Invoke(new FechaConexaoCallBack(this.FechaConexao), new object[] { Motivo });
+
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Olha o erro"+ex);
+                    Console.WriteLine("Olha o erro" + ex);
                 }
 
                 // Sai do método
                 return;
             }
+
             // Enquanto estiver conectado lê as linhas que estão chegando do servidor
             while (Conectado)
             {
@@ -156,7 +158,10 @@ namespace prjAps
                 }
                 catch (Exception ex)
                 {
+                    // Atualiza o formulário com o motivo da falha da conexão
+                    //this.Invoke(new FechaConexaoCallBack(this.FechaConexao), new object[] { "Não foi possivel estabelecer conexão com o servidor! \r\nClique no botão Reconectar... Para tentar novamente.\r\n" });
                     Console.WriteLine("Olha o erro" + ex);
+                    //return;
                 }
             }
         }
@@ -192,7 +197,6 @@ namespace prjAps
         // Envia mensagem ao servidor
         private void EnviaMensagem()
         {
-            
             if(Conectado)
             {
                 //envia mensagem pro servidor
@@ -215,7 +219,6 @@ namespace prjAps
         {
             atendimentoLog.AppendText($"{strMensagem} \r\n");
         }
-
         #endregion
 
         #region Eventos
