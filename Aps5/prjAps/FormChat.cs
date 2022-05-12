@@ -239,10 +239,5 @@ namespace prjAps
             }
         }
         #endregion
-
-        private void FormChat_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

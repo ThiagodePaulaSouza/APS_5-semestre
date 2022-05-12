@@ -59,9 +59,8 @@
             this.txf_cidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txf_cidade.ForeColor = System.Drawing.Color.White;
             this.txf_cidade.Location = new System.Drawing.Point(126, 302);
-            this.txf_cidade.Multiline = true;
             this.txf_cidade.Name = "txf_cidade";
-            this.txf_cidade.Size = new System.Drawing.Size(177, 20);
+            this.txf_cidade.Size = new System.Drawing.Size(177, 17);
             this.txf_cidade.TabIndex = 3;
             // 
             // txf_estado
@@ -71,9 +70,8 @@
             this.txf_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txf_estado.ForeColor = System.Drawing.Color.White;
             this.txf_estado.Location = new System.Drawing.Point(124, 234);
-            this.txf_estado.Multiline = true;
             this.txf_estado.Name = "txf_estado";
-            this.txf_estado.Size = new System.Drawing.Size(179, 20);
+            this.txf_estado.Size = new System.Drawing.Size(179, 17);
             this.txf_estado.TabIndex = 2;
             // 
             // panel7
@@ -184,9 +182,8 @@
             this.txf_nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txf_nome.ForeColor = System.Drawing.Color.White;
             this.txf_nome.Location = new System.Drawing.Point(125, 170);
-            this.txf_nome.Multiline = true;
             this.txf_nome.Name = "txf_nome";
-            this.txf_nome.Size = new System.Drawing.Size(189, 20);
+            this.txf_nome.Size = new System.Drawing.Size(189, 17);
             this.txf_nome.TabIndex = 1;
             // 
             // btnEntrar
