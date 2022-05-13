@@ -18,7 +18,6 @@ namespace prjAps
     {
         #region Variaveis
         private string name;
-        private int typeUser;
 
         private StreamWriter StwEnvia;
         private StreamReader StrRecebe;
@@ -37,11 +36,10 @@ namespace prjAps
         #endregion
 
         #region Construtor
-        public FormAnalista(string name, string state, string city, int typeUser)
+        public FormAnalista(string name, string state, string city)
         {
             //atualiza variaveis locais
             this.name = name;
-            this.typeUser = typeUser;
 
             Application.ApplicationExit += new EventHandler(OnApplicationExit);
 
