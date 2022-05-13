@@ -169,7 +169,6 @@ namespace prjAps
         // Atualiza a mensagem no atendimentoLog
         private void AtualizaLog(string strMensagem)
         {
-            strMensagem.ForeGroundColor = System.Drawing.Color.Red;
             txtLog.AppendText($"{strMensagem} \r\n");
         }
         #endregion
