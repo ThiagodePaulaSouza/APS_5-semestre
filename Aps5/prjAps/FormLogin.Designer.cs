@@ -42,7 +42,7 @@
             this.label_cidade = new System.Windows.Forms.Label();
             this.label_estado = new System.Windows.Forms.Label();
             this.label_nome = new System.Windows.Forms.Label();
-            this.rjButton1 = new prjAps.RJButton();
+            this.btnEntrar = new prjAps.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,7 +144,7 @@
             // 
             this.txf_nome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.txf_nome.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txf_nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txf_nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.txf_nome.ForeColor = System.Drawing.Color.White;
             this.txf_nome.Location = new System.Drawing.Point(125, 170);
             this.txf_nome.Name = "txf_nome";
@@ -185,20 +185,20 @@
             this.label_nome.TabIndex = 17;
             this.label_nome.Text = "Nome";
             // 
-            // rjButton1
+            // btnEntrar
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(215)))), ((int)(((byte)(88)))));
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold);
-            this.rjButton1.ForeColor = System.Drawing.Color.Black;
-            this.rjButton1.Location = new System.Drawing.Point(52, 409);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(281, 40);
-            this.rjButton1.TabIndex = 31;
-            this.rjButton1.Text = "Entrar";
-            this.rjButton1.UseVisualStyleBackColor = false;
-            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
+            this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(215)))), ((int)(((byte)(88)))));
+            this.btnEntrar.FlatAppearance.BorderSize = 0;
+            this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntrar.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnEntrar.ForeColor = System.Drawing.Color.Black;
+            this.btnEntrar.Location = new System.Drawing.Point(52, 409);
+            this.btnEntrar.Name = "btnEntrar";
+            this.btnEntrar.Size = new System.Drawing.Size(281, 40);
+            this.btnEntrar.TabIndex = 31;
+            this.btnEntrar.Text = "Entrar";
+            this.btnEntrar.UseVisualStyleBackColor = false;
+            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
             // FormLogin
             // 
@@ -206,7 +206,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(387, 500);
-            this.Controls.Add(this.rjButton1);
+            this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.txf_cidade);
             this.Controls.Add(this.txf_estado);
             this.Controls.Add(this.panel7);
@@ -224,7 +224,6 @@
             this.MaximizeBox = false;
             this.Name = "FormLogin";
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.FormLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -251,7 +250,7 @@
         private System.Windows.Forms.Label label_cidade;
         private System.Windows.Forms.Label label_estado;
         private System.Windows.Forms.Label label_nome;
-        private prjAps.RJButton rjButton1;
+        private prjAps.RJButton btnEntrar;
     }
 }
 
