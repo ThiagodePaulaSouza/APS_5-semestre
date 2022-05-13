@@ -81,7 +81,7 @@ namespace prjAps
                 //inicializa componentes
                 txtMensagem.Enabled = true;
                 btnEnviar.Enabled = true;
-                btnEnviar.ForeColor = Color.Black;
+                btnEnviar.ForeColor = Color.FromArgb(5, 215, 88);
                 btnEnviar.Text = "Enviar";
                 atendimentoLog.Enabled = false;
                 //IP e ID
@@ -180,7 +180,7 @@ namespace prjAps
             TcpServidor.Close();
 
             //desabilita e abilita os campos apropriados
-            btnEnviar.ForeColor = Color.Red;
+            btnEnviar.ForeColor = Color.FromArgb(255, 88, 88);
             btnEnviar.Text = "Reconectar...";
 
             txtMensagem.Enabled = false;
@@ -245,9 +245,64 @@ namespace prjAps
             Application.Exit();
         }
 
-        private void btnEnviar_Click(object sender, EventArgs e)
+        private void txtMensagem_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (btnEnviar.ForeColor == Color.Red)
+            // Se precionou a tecla enter
+            if (e.KeyChar == (char)13)
+            {
+                EnviaMensagem();
+            }
+        }
+        #endregion
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void atendimentoLog_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_regiao_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void rjPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lbl_nomeAnalista_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+            if (btnEnviar.ForeColor == Color.FromArgb(255, 88, 88))
             {
                 this.Cursor = Cursors.WaitCursor;
                 InicializaConexao();
@@ -258,15 +313,5 @@ namespace prjAps
                 EnviaMensagem();
             }
         }
-
-        private void txtMensagem_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Se precionou a tecla enter
-            if (e.KeyChar == (char)13)
-            {
-                EnviaMensagem();
-            }
-        }
-        #endregion
     }
 }

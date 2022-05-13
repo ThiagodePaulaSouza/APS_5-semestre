@@ -72,6 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RJButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RJPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="FormAnalista.resx">
       <DependentUpon>FormAnalista.cs</DependentUpon>
     </EmbeddedResource>
