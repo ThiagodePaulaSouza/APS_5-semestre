@@ -48,9 +48,9 @@ namespace prjAps
             InitializeComponent();
 
             //carrega dados no form
-            txt_nome.Text = name;
-            txt_estado.Text = state;
-            txt_cidade.Text = city;
+            txtNome.Text = name;
+            txtEstado.Text = state;
+            txtCidade.Text = city;
 
             if (!Conectado)
             {
@@ -79,16 +79,18 @@ namespace prjAps
                 Conectado = true;
 
                 //inicializa componentes
+                Point ptTxtOriginal = new Point(23, 6);
+                Point ptPnlOriginal = new Point(0, 389);
+                txtMensagem.Location = ptTxtOriginal;
+                pnlTxtMensagem.Location = ptPnlOriginal;
                 txtMensagem.Enabled = true;
                 btnEnviar.Enabled = true;
-                btnEnviar.ForeColor = Color.FromArgb(5, 215, 88);
+                btnEnviar.ForeColor = Color.Black;
                 btnEnviar.Text = "Enviar";
-                atendimentoLog.Enabled = false;
+                atendimentoLog.ForeColor = Color.FromArgb(5, 215, 88);
                 //IP e ID
                 IPAddress[] ip = Dns.GetHostAddresses(Dns.GetHostName());
-                txt_IP.Text = ip[1].ToString();
-                txt_ID.Text = $"IDP{typeUser}{ip[1]}";
-
+                txtIP.Text = ip[1].ToString();
                 //envia o nome do user para o servidor
                 StwEnvia = new StreamWriter(TcpServidor.GetStream());
                 StwEnvia.WriteLine(name);
@@ -119,6 +121,7 @@ namespace prjAps
                 // Atualiza o formulário (do servidor) para informar que está conectado
                 try
                 {
+                    // AtualizaLog o formulario com "Conectado com sucesso!"
                     this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
                 }
                 catch (Exception ex)
@@ -161,7 +164,6 @@ namespace prjAps
                     // Atualiza o formulário com o motivo da falha da conexão
                     this.Invoke(new FechaConexaoCallBack(this.FechaConexao), new object[] { "Não foi possivel estabelecer conexão com o servidor! \r\nClique no botão Reconectar... Para tentar novamente.\r\n" });
                     Console.WriteLine("Olha o erro" + ex);
-                    //return;
                 }
             }
         }
@@ -172,6 +174,7 @@ namespace prjAps
             //se não tiver motivo significa que apenas quer fechar a aplicação
             if (Motivo != null)
             {
+                atendimentoLog.ForeColor = Color.Yellow;
                 atendimentoLog.AppendText($"{Motivo} \r\n");
             }
 
@@ -180,11 +183,12 @@ namespace prjAps
             TcpServidor.Close();
 
             //desabilita e abilita os campos apropriados
-            btnEnviar.ForeColor = Color.FromArgb(255, 88, 88);
-            btnEnviar.Text = "Reconectar...";
-
+            btnEnviar.ForeColor = Color.Black;
+            btnEnviar.Text = "Reconectar";
+            Point ptTxt = new Point(1, 492);
+            pnlTxtMensagem.Location = ptTxt;
+            txtMensagem.Location = ptTxt;
             txtMensagem.Enabled = false;
-            atendimentoLog.Enabled = false;
 
             //n foi iniciado
             if (StwEnvia != null)
@@ -222,6 +226,20 @@ namespace prjAps
         #endregion
 
         #region Eventos
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            if (btnEnviar.Text == "Reconectar")
+            {
+                this.Cursor = Cursors.WaitCursor;
+                InicializaConexao();
+                this.Cursor = Cursors.Default;
+            }
+            else
+            {
+                EnviaMensagem();
+            }
+        }
+
         public void OnApplicationExit(object sender, EventArgs e)
         {
             //testar quando estiver conectado!
@@ -255,63 +273,7 @@ namespace prjAps
         }
         #endregion
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void atendimentoLog_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_regiao_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void rjPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lbl_nomeAnalista_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void rjButton1_Click(object sender, EventArgs e)
-        {
-            if (btnEnviar.ForeColor == Color.FromArgb(255, 88, 88))
-            {
-                this.Cursor = Cursors.WaitCursor;
-                InicializaConexao();
-                this.Cursor = Cursors.Default;
-            }
-            else
-            {
-                EnviaMensagem();
-            }
-        }
     }
 }
