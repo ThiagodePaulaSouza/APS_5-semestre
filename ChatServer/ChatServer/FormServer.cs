@@ -64,7 +64,7 @@ namespace ChatServer
             conectado = true;
             txtIP.Enabled = false;
             numPorta.Enabled = false;
-            btnStartServer.ForeColor = Color.FromArgb(255, 88, 88);
+            btnStartServer.BackColor = Color.FromArgb(255, 88, 88);
             btnStartServer.Text = "Sair";
         }
 
@@ -80,10 +80,6 @@ namespace ChatServer
             listaLog.Items.Add(strMensagem);
             listaLog.SetSelected(listaLog.Items.Count - 1, true);
         }
-
-        private void numPorta_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
