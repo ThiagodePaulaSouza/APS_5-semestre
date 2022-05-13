@@ -1,2 +1,3 @@
 # APS_5-semestre
-ChatBot => Academic Project made with my colleagues
+
+![](https://github.com/ThiagodePaulaSouza/react-exercises/blob/main/Ex-img.PNG)
