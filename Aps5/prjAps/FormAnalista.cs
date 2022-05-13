@@ -126,7 +126,7 @@ namespace prjAps
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Olha o erro" + ex);
+                    Console.WriteLine("Error Message: \n" + ex);
                 }
             }
             else
@@ -144,7 +144,7 @@ namespace prjAps
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Olha o erro" + ex);
+                    Console.WriteLine("Error Message: \n" + ex);
                 }
 
                 // Sai do método
@@ -163,7 +163,7 @@ namespace prjAps
                 {
                     // Atualiza o formulário com o motivo da falha da conexão
                     this.Invoke(new FechaConexaoCallBack(this.FechaConexao), new object[] { "Não foi possivel estabelecer conexão com o servidor! \r\nClique no botão Reconectar... Para tentar novamente.\r\n" });
-                    Console.WriteLine("Olha o erro" + ex);
+                    Console.WriteLine("Error Message: \n" + ex);
                 }
             }
         }
