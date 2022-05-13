@@ -28,390 +28,424 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Panel panel_atendimentos;
+            System.Windows.Forms.Panel pnlAtendimentos;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAnalista));
+            this.pnlTxtMensagem = new prjAps.RJPanel();
+            this.txtMensagem = new System.Windows.Forms.TextBox();
+            this.btnEnviar = new prjAps.RJButton();
             this.atendimentoLog = new System.Windows.Forms.TextBox();
-            this.panel_info = new System.Windows.Forms.Panel();
-            this.txt_ID = new System.Windows.Forms.Label();
-            this.txt_IP = new System.Windows.Forms.Label();
-            this.txt_latitude = new System.Windows.Forms.Label();
-            this.txt_longitude = new System.Windows.Forms.Label();
-            this.txt_regiao = new System.Windows.Forms.Label();
-            this.txt_cidade = new System.Windows.Forms.Label();
-            this.txt_estado = new System.Windows.Forms.Label();
-            this.txt_nome = new System.Windows.Forms.Label();
-            this.lbl_ID = new System.Windows.Forms.Label();
-            this.lbl_IP = new System.Windows.Forms.Label();
-            this.lbl_latitude = new System.Windows.Forms.Label();
-            this.lbl_longitude = new System.Windows.Forms.Label();
-            this.lbl_regiao = new System.Windows.Forms.Label();
-            this.lbl_estadoAnalista = new System.Windows.Forms.Label();
-            this.lbl_cidadeAnalista = new System.Windows.Forms.Label();
-            this.lbl_nomeAnalista = new System.Windows.Forms.Label();
-            this.panel_lblChats = new System.Windows.Forms.Panel();
-            this.lbl_chats = new System.Windows.Forms.Label();
-            this.panel_chats = new System.Windows.Forms.Panel();
-            this.link_chat = new System.Windows.Forms.LinkLabel();
+            this.txtRegiao = new System.Windows.Forms.Label();
+            this.txtCidade = new System.Windows.Forms.Label();
+            this.txtEstado = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.Label();
+            this.lblIP = new System.Windows.Forms.Label();
+            this.lblRegiao = new System.Windows.Forms.Label();
+            this.lblEstadoAnalista = new System.Windows.Forms.Label();
+            this.lblCidadeAnalista = new System.Windows.Forms.Label();
+            this.lblNomeAnalista = new System.Windows.Forms.Label();
             this.panel_lblAtendimento = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            panel_atendimentos = new System.Windows.Forms.Panel();
-            panel_atendimentos.SuspendLayout();
-            this.panel_info.SuspendLayout();
-            this.panel_lblChats.SuspendLayout();
-            this.panel_chats.SuspendLayout();
+            this.lblAtendimentos = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelTitulo = new System.Windows.Forms.Label();
+            this.pnlLogo = new System.Windows.Forms.Panel();
+            this.tblLayoutPnl = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlNome = new System.Windows.Forms.Panel();
+            this.pnlIP = new System.Windows.Forms.Panel();
+            this.txtIP = new System.Windows.Forms.Label();
+            this.pnlRegiao = new System.Windows.Forms.Panel();
+            this.pnlCidade = new System.Windows.Forms.Panel();
+            this.pnlEstado = new System.Windows.Forms.Panel();
+            pnlAtendimentos = new System.Windows.Forms.Panel();
+            pnlAtendimentos.SuspendLayout();
+            this.pnlTxtMensagem.SuspendLayout();
             this.panel_lblAtendimento.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlLogo.SuspendLayout();
+            this.tblLayoutPnl.SuspendLayout();
+            this.pnlNome.SuspendLayout();
+            this.pnlIP.SuspendLayout();
+            this.pnlRegiao.SuspendLayout();
+            this.pnlCidade.SuspendLayout();
+            this.pnlEstado.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel_atendimentos
+            // pnlAtendimentos
             // 
-            panel_atendimentos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            panel_atendimentos.Controls.Add(this.atendimentoLog);
-            panel_atendimentos.Location = new System.Drawing.Point(155, 143);
-            panel_atendimentos.Name = "panel_atendimentos";
-            panel_atendimentos.Size = new System.Drawing.Size(781, 337);
-            panel_atendimentos.TabIndex = 4;
+            pnlAtendimentos.Controls.Add(this.pnlTxtMensagem);
+            pnlAtendimentos.Controls.Add(this.btnEnviar);
+            pnlAtendimentos.Controls.Add(this.atendimentoLog);
+            pnlAtendimentos.Location = new System.Drawing.Point(266, 106);
+            pnlAtendimentos.Name = "pnlAtendimentos";
+            pnlAtendimentos.Size = new System.Drawing.Size(727, 446);
+            pnlAtendimentos.TabIndex = 999;
+            // 
+            // pnlTxtMensagem
+            // 
+            this.pnlTxtMensagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(215)))), ((int)(((byte)(88)))));
+            this.pnlTxtMensagem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlTxtMensagem.Controls.Add(this.txtMensagem);
+            this.pnlTxtMensagem.ForeColor = System.Drawing.Color.White;
+            this.pnlTxtMensagem.Location = new System.Drawing.Point(0, 389);
+            this.pnlTxtMensagem.Name = "pnlTxtMensagem";
+            this.pnlTxtMensagem.Size = new System.Drawing.Size(570, 35);
+            this.pnlTxtMensagem.TabIndex = 11;
+            // 
+            // txtMensagem
+            // 
+            this.txtMensagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(215)))), ((int)(((byte)(88)))));
+            this.txtMensagem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMensagem.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMensagem.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMensagem.ForeColor = System.Drawing.Color.Black;
+            this.txtMensagem.Location = new System.Drawing.Point(23, 6);
+            this.txtMensagem.Name = "txtMensagem";
+            this.txtMensagem.Size = new System.Drawing.Size(524, 22);
+            this.txtMensagem.TabIndex = 0;
+            this.txtMensagem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMensagem_KeyPress);
+            // 
+            // btnEnviar
+            // 
+            this.btnEnviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(215)))), ((int)(((byte)(88)))));
+            this.btnEnviar.FlatAppearance.BorderSize = 0;
+            this.btnEnviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnviar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnviar.ForeColor = System.Drawing.Color.Black;
+            this.btnEnviar.Location = new System.Drawing.Point(583, 388);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(141, 36);
+            this.btnEnviar.TabIndex = 2;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.UseVisualStyleBackColor = false;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // atendimentoLog
             // 
+            this.atendimentoLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.atendimentoLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.atendimentoLog.Cursor = System.Windows.Forms.Cursors.Default;
             this.atendimentoLog.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.atendimentoLog.Location = new System.Drawing.Point(-2, -2);
+            this.atendimentoLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(215)))), ((int)(((byte)(88)))));
+            this.atendimentoLog.Location = new System.Drawing.Point(24, 0);
             this.atendimentoLog.Multiline = true;
             this.atendimentoLog.Name = "atendimentoLog";
             this.atendimentoLog.ReadOnly = true;
             this.atendimentoLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.atendimentoLog.Size = new System.Drawing.Size(782, 337);
-            this.atendimentoLog.TabIndex = 0;
+            this.atendimentoLog.Size = new System.Drawing.Size(721, 371);
+            this.atendimentoLog.TabIndex = 99;
+            this.atendimentoLog.TabStop = false;
             // 
-            // panel_info
+            // txtRegiao
             // 
-            this.panel_info.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel_info.Controls.Add(this.txt_ID);
-            this.panel_info.Controls.Add(this.txt_IP);
-            this.panel_info.Controls.Add(this.txt_latitude);
-            this.panel_info.Controls.Add(this.txt_longitude);
-            this.panel_info.Controls.Add(this.txt_regiao);
-            this.panel_info.Controls.Add(this.txt_cidade);
-            this.panel_info.Controls.Add(this.txt_estado);
-            this.panel_info.Controls.Add(this.txt_nome);
-            this.panel_info.Controls.Add(this.lbl_ID);
-            this.panel_info.Controls.Add(this.lbl_IP);
-            this.panel_info.Controls.Add(this.lbl_latitude);
-            this.panel_info.Controls.Add(this.lbl_longitude);
-            this.panel_info.Controls.Add(this.lbl_regiao);
-            this.panel_info.Controls.Add(this.lbl_estadoAnalista);
-            this.panel_info.Controls.Add(this.lbl_cidadeAnalista);
-            this.panel_info.Controls.Add(this.lbl_nomeAnalista);
-            this.panel_info.Location = new System.Drawing.Point(12, 12);
-            this.panel_info.Name = "panel_info";
-            this.panel_info.Size = new System.Drawing.Size(924, 78);
-            this.panel_info.TabIndex = 0;
+            this.txtRegiao.AutoSize = true;
+            this.txtRegiao.BackColor = System.Drawing.Color.Transparent;
+            this.txtRegiao.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRegiao.ForeColor = System.Drawing.Color.White;
+            this.txtRegiao.Location = new System.Drawing.Point(6, 29);
+            this.txtRegiao.Name = "txtRegiao";
+            this.txtRegiao.Size = new System.Drawing.Size(149, 18);
+            this.txtRegiao.TabIndex = 16;
+            this.txtRegiao.Text = "São Paulo e Região";
             // 
-            // txt_ID
+            // txtCidade
             // 
-            this.txt_ID.AutoSize = true;
-            this.txt_ID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ID.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txt_ID.Location = new System.Drawing.Point(582, 58);
-            this.txt_ID.Name = "txt_ID";
-            this.txt_ID.Size = new System.Drawing.Size(42, 16);
-            this.txt_ID.TabIndex = 20;
-            this.txt_ID.Text = "Null...";
+            this.txtCidade.AutoSize = true;
+            this.txtCidade.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCidade.ForeColor = System.Drawing.Color.White;
+            this.txtCidade.Location = new System.Drawing.Point(6, 29);
+            this.txtCidade.Name = "txtCidade";
+            this.txtCidade.Size = new System.Drawing.Size(45, 18);
+            this.txtCidade.TabIndex = 15;
+            this.txtCidade.Text = "Null...";
             // 
-            // txt_IP
+            // txtEstado
             // 
-            this.txt_IP.AutoSize = true;
-            this.txt_IP.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_IP.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txt_IP.Location = new System.Drawing.Point(582, 30);
-            this.txt_IP.Name = "txt_IP";
-            this.txt_IP.Size = new System.Drawing.Size(42, 16);
-            this.txt_IP.TabIndex = 19;
-            this.txt_IP.Text = "Null...";
+            this.txtEstado.AutoSize = true;
+            this.txtEstado.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEstado.ForeColor = System.Drawing.Color.White;
+            this.txtEstado.Location = new System.Drawing.Point(6, 29);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(45, 18);
+            this.txtEstado.TabIndex = 14;
+            this.txtEstado.Text = "Null...";
             // 
-            // txt_latitude
+            // txtNome
             // 
-            this.txt_latitude.AutoSize = true;
-            this.txt_latitude.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_latitude.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txt_latitude.Location = new System.Drawing.Point(343, 58);
-            this.txt_latitude.Name = "txt_latitude";
-            this.txt_latitude.Size = new System.Drawing.Size(42, 16);
-            this.txt_latitude.TabIndex = 18;
-            this.txt_latitude.Text = "Null...";
+            this.txtNome.AutoSize = true;
+            this.txtNome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.ForeColor = System.Drawing.Color.White;
+            this.txtNome.Location = new System.Drawing.Point(6, 29);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(45, 18);
+            this.txtNome.TabIndex = 123;
+            this.txtNome.Text = "Null...";
             // 
-            // txt_longitude
+            // lblIP
             // 
-            this.txt_longitude.AutoSize = true;
-            this.txt_longitude.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_longitude.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txt_longitude.Location = new System.Drawing.Point(343, 30);
-            this.txt_longitude.Name = "txt_longitude";
-            this.txt_longitude.Size = new System.Drawing.Size(42, 16);
-            this.txt_longitude.TabIndex = 17;
-            this.txt_longitude.Text = "Null...";
+            this.lblIP.AutoSize = true;
+            this.lblIP.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblIP.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(215)))), ((int)(((byte)(88)))));
+            this.lblIP.Location = new System.Drawing.Point(6, 0);
+            this.lblIP.Name = "lblIP";
+            this.lblIP.Size = new System.Drawing.Size(118, 19);
+            this.lblIP.TabIndex = 12;
+            this.lblIP.Text = "IP do Analista:";
             // 
-            // txt_regiao
+            // lblRegiao
             // 
-            this.txt_regiao.AutoSize = true;
-            this.txt_regiao.Enabled = false;
-            this.txt_regiao.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_regiao.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txt_regiao.Location = new System.Drawing.Point(495, 0);
-            this.txt_regiao.Name = "txt_regiao";
-            this.txt_regiao.Size = new System.Drawing.Size(123, 16);
-            this.txt_regiao.TabIndex = 16;
-            this.txt_regiao.Text = "São Paulo e Região";
+            this.lblRegiao.AutoSize = true;
+            this.lblRegiao.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblRegiao.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegiao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(215)))), ((int)(((byte)(88)))));
+            this.lblRegiao.Location = new System.Drawing.Point(6, 0);
+            this.lblRegiao.Name = "lblRegiao";
+            this.lblRegiao.Size = new System.Drawing.Size(191, 19);
+            this.lblRegiao.TabIndex = 865;
+            this.lblRegiao.Text = "Região de atendimento:";
             // 
-            // txt_cidade
+            // lblEstadoAnalista
             // 
-            this.txt_cidade.AutoSize = true;
-            this.txt_cidade.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_cidade.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txt_cidade.Location = new System.Drawing.Point(130, 58);
-            this.txt_cidade.Name = "txt_cidade";
-            this.txt_cidade.Size = new System.Drawing.Size(42, 16);
-            this.txt_cidade.TabIndex = 15;
-            this.txt_cidade.Text = "Null...";
+            this.lblEstadoAnalista.AutoSize = true;
+            this.lblEstadoAnalista.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblEstadoAnalista.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstadoAnalista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(215)))), ((int)(((byte)(88)))));
+            this.lblEstadoAnalista.Location = new System.Drawing.Point(6, 0);
+            this.lblEstadoAnalista.Name = "lblEstadoAnalista";
+            this.lblEstadoAnalista.Size = new System.Drawing.Size(157, 19);
+            this.lblEstadoAnalista.TabIndex = 1234;
+            this.lblEstadoAnalista.Text = "Estado do Analista:";
             // 
-            // txt_estado
+            // lblCidadeAnalista
             // 
-            this.txt_estado.AutoSize = true;
-            this.txt_estado.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_estado.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txt_estado.Location = new System.Drawing.Point(130, 30);
-            this.txt_estado.Name = "txt_estado";
-            this.txt_estado.Size = new System.Drawing.Size(42, 16);
-            this.txt_estado.TabIndex = 14;
-            this.txt_estado.Text = "Null...";
+            this.lblCidadeAnalista.AutoSize = true;
+            this.lblCidadeAnalista.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblCidadeAnalista.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCidadeAnalista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(215)))), ((int)(((byte)(88)))));
+            this.lblCidadeAnalista.Location = new System.Drawing.Point(6, 0);
+            this.lblCidadeAnalista.Name = "lblCidadeAnalista";
+            this.lblCidadeAnalista.Size = new System.Drawing.Size(157, 19);
+            this.lblCidadeAnalista.TabIndex = 86;
+            this.lblCidadeAnalista.Text = "Cidade do Analista:";
             // 
-            // txt_nome
+            // lblNomeAnalista
             // 
-            this.txt_nome.AutoSize = true;
-            this.txt_nome.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_nome.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txt_nome.Location = new System.Drawing.Point(130, 3);
-            this.txt_nome.Name = "txt_nome";
-            this.txt_nome.Size = new System.Drawing.Size(42, 16);
-            this.txt_nome.TabIndex = 0;
-            this.txt_nome.Text = "Null...";
-            this.txt_nome.Click += new System.EventHandler(this.txt_nome_Click);
-            // 
-            // lbl_ID
-            // 
-            this.lbl_ID.AutoSize = true;
-            this.lbl_ID.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.lbl_ID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ID.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lbl_ID.Location = new System.Drawing.Point(476, 58);
-            this.lbl_ID.Name = "lbl_ID";
-            this.lbl_ID.Size = new System.Drawing.Size(100, 16);
-            this.lbl_ID.TabIndex = 13;
-            this.lbl_ID.Text = "ID do Analista:";
-            // 
-            // lbl_IP
-            // 
-            this.lbl_IP.AutoSize = true;
-            this.lbl_IP.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.lbl_IP.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_IP.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lbl_IP.Location = new System.Drawing.Point(476, 30);
-            this.lbl_IP.Name = "lbl_IP";
-            this.lbl_IP.Size = new System.Drawing.Size(100, 16);
-            this.lbl_IP.TabIndex = 12;
-            this.lbl_IP.Text = "IP do Analista:";
-            this.lbl_IP.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // lbl_latitude
-            // 
-            this.lbl_latitude.AutoSize = true;
-            this.lbl_latitude.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.lbl_latitude.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_latitude.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lbl_latitude.Location = new System.Drawing.Point(261, 57);
-            this.lbl_latitude.Name = "lbl_latitude";
-            this.lbl_latitude.Size = new System.Drawing.Size(64, 16);
-            this.lbl_latitude.TabIndex = 8;
-            this.lbl_latitude.Text = "Latitude:";
-            // 
-            // lbl_longitude
-            // 
-            this.lbl_longitude.AutoSize = true;
-            this.lbl_longitude.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.lbl_longitude.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_longitude.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lbl_longitude.Location = new System.Drawing.Point(261, 30);
-            this.lbl_longitude.Name = "lbl_longitude";
-            this.lbl_longitude.Size = new System.Drawing.Size(76, 16);
-            this.lbl_longitude.TabIndex = 7;
-            this.lbl_longitude.Text = "Longitude:";
-            // 
-            // lbl_regiao
-            // 
-            this.lbl_regiao.AutoSize = true;
-            this.lbl_regiao.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.lbl_regiao.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_regiao.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lbl_regiao.Location = new System.Drawing.Point(261, 0);
-            this.lbl_regiao.Name = "lbl_regiao";
-            this.lbl_regiao.Size = new System.Drawing.Size(228, 16);
-            this.lbl_regiao.TabIndex = 6;
-            this.lbl_regiao.Text = "Região de atendimento ao cliente:";
-            this.lbl_regiao.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // lbl_estadoAnalista
-            // 
-            this.lbl_estadoAnalista.AutoSize = true;
-            this.lbl_estadoAnalista.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.lbl_estadoAnalista.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_estadoAnalista.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lbl_estadoAnalista.Location = new System.Drawing.Point(3, 30);
-            this.lbl_estadoAnalista.Name = "lbl_estadoAnalista";
-            this.lbl_estadoAnalista.Size = new System.Drawing.Size(129, 16);
-            this.lbl_estadoAnalista.TabIndex = 1;
-            this.lbl_estadoAnalista.Text = "Estado do Analista:";
-            // 
-            // lbl_cidadeAnalista
-            // 
-            this.lbl_cidadeAnalista.AutoSize = true;
-            this.lbl_cidadeAnalista.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.lbl_cidadeAnalista.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_cidadeAnalista.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lbl_cidadeAnalista.Location = new System.Drawing.Point(3, 58);
-            this.lbl_cidadeAnalista.Name = "lbl_cidadeAnalista";
-            this.lbl_cidadeAnalista.Size = new System.Drawing.Size(132, 16);
-            this.lbl_cidadeAnalista.TabIndex = 0;
-            this.lbl_cidadeAnalista.Text = "Cidade do Analista:";
-            // 
-            // lbl_nomeAnalista
-            // 
-            this.lbl_nomeAnalista.AutoSize = true;
-            this.lbl_nomeAnalista.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.lbl_nomeAnalista.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_nomeAnalista.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lbl_nomeAnalista.Location = new System.Drawing.Point(3, 0);
-            this.lbl_nomeAnalista.Name = "lbl_nomeAnalista";
-            this.lbl_nomeAnalista.Size = new System.Drawing.Size(124, 16);
-            this.lbl_nomeAnalista.TabIndex = 0;
-            this.lbl_nomeAnalista.Text = "Nome do Analista:";
-            // 
-            // panel_lblChats
-            // 
-            this.panel_lblChats.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel_lblChats.Controls.Add(this.lbl_chats);
-            this.panel_lblChats.Location = new System.Drawing.Point(13, 97);
-            this.panel_lblChats.Name = "panel_lblChats";
-            this.panel_lblChats.Size = new System.Drawing.Size(135, 39);
-            this.panel_lblChats.TabIndex = 1;
-            // 
-            // lbl_chats
-            // 
-            this.lbl_chats.AutoSize = true;
-            this.lbl_chats.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.lbl_chats.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_chats.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lbl_chats.Location = new System.Drawing.Point(3, 9);
-            this.lbl_chats.Name = "lbl_chats";
-            this.lbl_chats.Size = new System.Drawing.Size(113, 16);
-            this.lbl_chats.TabIndex = 16;
-            this.lbl_chats.Text = "Chats em Aberto";
-            // 
-            // panel_chats
-            // 
-            this.panel_chats.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel_chats.Controls.Add(this.link_chat);
-            this.panel_chats.Location = new System.Drawing.Point(12, 143);
-            this.panel_chats.Name = "panel_chats";
-            this.panel_chats.Size = new System.Drawing.Size(136, 337);
-            this.panel_chats.TabIndex = 2;
-            // 
-            // link_chat
-            // 
-            this.link_chat.ActiveLinkColor = System.Drawing.Color.Transparent;
-            this.link_chat.AutoSize = true;
-            this.link_chat.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.link_chat.LinkColor = System.Drawing.Color.DarkCyan;
-            this.link_chat.Location = new System.Drawing.Point(7, 4);
-            this.link_chat.Name = "link_chat";
-            this.link_chat.Size = new System.Drawing.Size(88, 16);
-            this.link_chat.TabIndex = 0;
-            this.link_chat.TabStop = true;
-            this.link_chat.Text = "Denunciante";
-            this.link_chat.VisitedLinkColor = System.Drawing.Color.DarkCyan;
-            this.link_chat.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_chat_LinkClicked);
+            this.lblNomeAnalista.AutoSize = true;
+            this.lblNomeAnalista.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblNomeAnalista.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeAnalista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(215)))), ((int)(((byte)(88)))));
+            this.lblNomeAnalista.Location = new System.Drawing.Point(6, 0);
+            this.lblNomeAnalista.Name = "lblNomeAnalista";
+            this.lblNomeAnalista.Size = new System.Drawing.Size(148, 19);
+            this.lblNomeAnalista.TabIndex = 123;
+            this.lblNomeAnalista.Text = "Nome do Analista:";
             // 
             // panel_lblAtendimento
             // 
-            this.panel_lblAtendimento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel_lblAtendimento.Controls.Add(this.label1);
-            this.panel_lblAtendimento.Location = new System.Drawing.Point(155, 97);
+            this.panel_lblAtendimento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.panel_lblAtendimento.Controls.Add(this.lblAtendimentos);
+            this.panel_lblAtendimento.Location = new System.Drawing.Point(266, 12);
             this.panel_lblAtendimento.Name = "panel_lblAtendimento";
-            this.panel_lblAtendimento.Size = new System.Drawing.Size(781, 39);
-            this.panel_lblAtendimento.TabIndex = 3;
+            this.panel_lblAtendimento.Size = new System.Drawing.Size(727, 85);
+            this.panel_lblAtendimento.TabIndex = 122;
             // 
-            // label1
+            // lblAtendimentos
             // 
-            this.label1.AutoSize = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.label1.Location = new System.Drawing.Point(312, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 16);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Atendimentos Realizados";
+            this.lblAtendimentos.AutoSize = true;
+            this.lblAtendimentos.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblAtendimentos.Font = new System.Drawing.Font("Mongolian Baiti", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAtendimentos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(215)))), ((int)(((byte)(88)))));
+            this.lblAtendimentos.Location = new System.Drawing.Point(184, 26);
+            this.lblAtendimentos.Name = "lblAtendimentos";
+            this.lblAtendimentos.Size = new System.Drawing.Size(364, 34);
+            this.lblAtendimentos.TabIndex = 17;
+            this.lblAtendimentos.Text = "Atendimentos Realizados";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-12, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(80, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 31;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Tag = "567";
+            // 
+            // labelTitulo
+            // 
+            this.labelTitulo.AutoSize = true;
+            this.labelTitulo.BackColor = System.Drawing.Color.Transparent;
+            this.labelTitulo.Font = new System.Drawing.Font("Mongolian Baiti", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(215)))), ((int)(((byte)(88)))));
+            this.labelTitulo.Location = new System.Drawing.Point(59, 24);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Size = new System.Drawing.Size(149, 40);
+            this.labelTitulo.TabIndex = 32;
+            this.labelTitulo.Text = "ChatFlor";
+            // 
+            // pnlLogo
+            // 
+            this.pnlLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.pnlLogo.Controls.Add(this.labelTitulo);
+            this.pnlLogo.Controls.Add(this.pictureBox1);
+            this.pnlLogo.Location = new System.Drawing.Point(2, 9);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(258, 88);
+            this.pnlLogo.TabIndex = 21;
+            // 
+            // tblLayoutPnl
+            // 
+            this.tblLayoutPnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.tblLayoutPnl.ColumnCount = 1;
+            this.tblLayoutPnl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblLayoutPnl.Controls.Add(this.pnlNome, 0, 0);
+            this.tblLayoutPnl.Controls.Add(this.pnlIP, 0, 4);
+            this.tblLayoutPnl.Controls.Add(this.pnlRegiao, 0, 3);
+            this.tblLayoutPnl.Controls.Add(this.pnlCidade, 0, 2);
+            this.tblLayoutPnl.Controls.Add(this.pnlEstado, 0, 1);
+            this.tblLayoutPnl.Location = new System.Drawing.Point(2, 106);
+            this.tblLayoutPnl.Name = "tblLayoutPnl";
+            this.tblLayoutPnl.RowCount = 6;
+            this.tblLayoutPnl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67032F));
+            this.tblLayoutPnl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66594F));
+            this.tblLayoutPnl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66594F));
+            this.tblLayoutPnl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66594F));
+            this.tblLayoutPnl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66594F));
+            this.tblLayoutPnl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66594F));
+            this.tblLayoutPnl.Size = new System.Drawing.Size(255, 446);
+            this.tblLayoutPnl.TabIndex = 75;
+            // 
+            // pnlNome
+            // 
+            this.pnlNome.Controls.Add(this.txtNome);
+            this.pnlNome.Controls.Add(this.lblNomeAnalista);
+            this.pnlNome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlNome.Location = new System.Drawing.Point(3, 3);
+            this.pnlNome.Name = "pnlNome";
+            this.pnlNome.Size = new System.Drawing.Size(249, 68);
+            this.pnlNome.TabIndex = 11;
+            // 
+            // pnlIP
+            // 
+            this.pnlIP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.pnlIP.Controls.Add(this.lblIP);
+            this.pnlIP.Controls.Add(this.txtIP);
+            this.pnlIP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlIP.Location = new System.Drawing.Point(3, 299);
+            this.pnlIP.Name = "pnlIP";
+            this.pnlIP.Size = new System.Drawing.Size(249, 68);
+            this.pnlIP.TabIndex = 12;
+            // 
+            // txtIP
+            // 
+            this.txtIP.AutoSize = true;
+            this.txtIP.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIP.ForeColor = System.Drawing.Color.White;
+            this.txtIP.Location = new System.Drawing.Point(6, 29);
+            this.txtIP.Name = "txtIP";
+            this.txtIP.Size = new System.Drawing.Size(45, 18);
+            this.txtIP.TabIndex = 19;
+            this.txtIP.Text = "Null...";
+            // 
+            // pnlRegiao
+            // 
+            this.pnlRegiao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.pnlRegiao.Controls.Add(this.lblRegiao);
+            this.pnlRegiao.Controls.Add(this.txtRegiao);
+            this.pnlRegiao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlRegiao.Location = new System.Drawing.Point(3, 225);
+            this.pnlRegiao.Name = "pnlRegiao";
+            this.pnlRegiao.Size = new System.Drawing.Size(249, 68);
+            this.pnlRegiao.TabIndex = 12;
+            // 
+            // pnlCidade
+            // 
+            this.pnlCidade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.pnlCidade.Controls.Add(this.lblCidadeAnalista);
+            this.pnlCidade.Controls.Add(this.txtCidade);
+            this.pnlCidade.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCidade.Location = new System.Drawing.Point(3, 151);
+            this.pnlCidade.Name = "pnlCidade";
+            this.pnlCidade.Size = new System.Drawing.Size(249, 68);
+            this.pnlCidade.TabIndex = 46;
+            // 
+            // pnlEstado
+            // 
+            this.pnlEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.pnlEstado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlEstado.Controls.Add(this.lblEstadoAnalista);
+            this.pnlEstado.Controls.Add(this.txtEstado);
+            this.pnlEstado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(215)))), ((int)(((byte)(88)))));
+            this.pnlEstado.Location = new System.Drawing.Point(3, 77);
+            this.pnlEstado.Name = "pnlEstado";
+            this.pnlEstado.Size = new System.Drawing.Size(249, 68);
+            this.pnlEstado.TabIndex = 11;
             // 
             // FormAnalista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(948, 492);
-            this.Controls.Add(panel_atendimentos);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.ClientSize = new System.Drawing.Size(1005, 542);
+            this.Controls.Add(this.tblLayoutPnl);
+            this.Controls.Add(this.pnlLogo);
+            this.Controls.Add(pnlAtendimentos);
             this.Controls.Add(this.panel_lblAtendimento);
-            this.Controls.Add(this.panel_chats);
-            this.Controls.Add(this.panel_lblChats);
-            this.Controls.Add(this.panel_info);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormAnalista";
             this.Text = "Denúncias Florestais";
-            this.Load += new System.EventHandler(this.FormAnalista_Load);
-            panel_atendimentos.ResumeLayout(false);
-            panel_atendimentos.PerformLayout();
-            this.panel_info.ResumeLayout(false);
-            this.panel_info.PerformLayout();
-            this.panel_lblChats.ResumeLayout(false);
-            this.panel_lblChats.PerformLayout();
-            this.panel_chats.ResumeLayout(false);
-            this.panel_chats.PerformLayout();
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAnalista_FormClosed);
+            pnlAtendimentos.ResumeLayout(false);
+            pnlAtendimentos.PerformLayout();
+            this.pnlTxtMensagem.ResumeLayout(false);
+            this.pnlTxtMensagem.PerformLayout();
             this.panel_lblAtendimento.ResumeLayout(false);
             this.panel_lblAtendimento.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlLogo.ResumeLayout(false);
+            this.pnlLogo.PerformLayout();
+            this.tblLayoutPnl.ResumeLayout(false);
+            this.pnlNome.ResumeLayout(false);
+            this.pnlNome.PerformLayout();
+            this.pnlIP.ResumeLayout(false);
+            this.pnlIP.PerformLayout();
+            this.pnlRegiao.ResumeLayout(false);
+            this.pnlRegiao.PerformLayout();
+            this.pnlCidade.ResumeLayout(false);
+            this.pnlCidade.PerformLayout();
+            this.pnlEstado.ResumeLayout(false);
+            this.pnlEstado.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel_info;
-        private System.Windows.Forms.Label lbl_latitude;
-        private System.Windows.Forms.Label lbl_longitude;
-        private System.Windows.Forms.Label lbl_regiao;
-        private System.Windows.Forms.Label lbl_estadoAnalista;
-        private System.Windows.Forms.Label lbl_cidadeAnalista;
-        private System.Windows.Forms.Label lbl_nomeAnalista;
-        private System.Windows.Forms.Panel panel_lblChats;
-        private System.Windows.Forms.Panel panel_chats;
+        private System.Windows.Forms.Label lblRegiao;
+        private System.Windows.Forms.Label lblEstadoAnalista;
+        private System.Windows.Forms.Label lblCidadeAnalista;
+        private System.Windows.Forms.Label lblNomeAnalista;
         private System.Windows.Forms.Panel panel_lblAtendimento;
-        private System.Windows.Forms.Label lbl_ID;
-        private System.Windows.Forms.Label lbl_IP;
-        private System.Windows.Forms.Label lbl_chats;
-        private System.Windows.Forms.LinkLabel link_chat;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label txt_nome;
-        private System.Windows.Forms.Label txt_ID;
-        private System.Windows.Forms.Label txt_IP;
-        private System.Windows.Forms.Label txt_latitude;
-        private System.Windows.Forms.Label txt_longitude;
-        private System.Windows.Forms.Label txt_regiao;
-        private System.Windows.Forms.Label txt_cidade;
-        private System.Windows.Forms.Label txt_estado;
+        private System.Windows.Forms.Label lblIP;
+        private System.Windows.Forms.Label lblAtendimentos;
+        private System.Windows.Forms.Label txtNome;
+        private System.Windows.Forms.Label txtRegiao;
+        private System.Windows.Forms.Label txtCidade;
+        private System.Windows.Forms.Label txtEstado;
         private System.Windows.Forms.TextBox atendimentoLog;
+        private System.Windows.Forms.TextBox txtMensagem;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelTitulo;
+        private System.Windows.Forms.Panel pnlLogo;
+        private System.Windows.Forms.TableLayoutPanel tblLayoutPnl;
+        private System.Windows.Forms.Panel pnlIP;
+        private System.Windows.Forms.Panel pnlRegiao;
+        private System.Windows.Forms.Panel pnlCidade;
+        private System.Windows.Forms.Panel pnlEstado;
+        private System.Windows.Forms.Panel pnlNome;
+        private RJButton btnEnviar;
+        private RJPanel pnlTxtMensagem;
+        private System.Windows.Forms.Label txtIP;
     }
 }

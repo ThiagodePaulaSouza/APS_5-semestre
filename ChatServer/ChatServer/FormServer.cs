@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace ChatServer
 {
-    public partial class Form1 : Form
+    public partial class FormServer : Form
     {
         private delegate void AtualizaStatusCallback(string strMensagem);
 
         bool conectado = false;
 
-        public Form1()
+        public FormServer()
         {
             InitializeComponent();
         }
@@ -40,7 +40,7 @@ namespace ChatServer
             try
             {
                 IPAddress enderecoIP = IPAddress.Parse(txtIP.Text);
-                int portaHost = (int)numPorta.Value;
+                int portaHost = int.Parse(numPorta.Text);
 
                 Servidor mainServidor = new Servidor(enderecoIP, portaHost);
 
@@ -64,7 +64,7 @@ namespace ChatServer
             conectado = true;
             txtIP.Enabled = false;
             numPorta.Enabled = false;
-            btnStartServer.ForeColor = Color.Red;
+            btnStartServer.BackColor = Color.FromArgb(255, 88, 88);
             btnStartServer.Text = "Sair";
         }
 
@@ -80,5 +80,6 @@ namespace ChatServer
             listaLog.Items.Add(strMensagem);
             listaLog.SetSelected(listaLog.Items.Count - 1, true);
         }
+        
     }
 }
