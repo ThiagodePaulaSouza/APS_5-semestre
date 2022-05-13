@@ -40,7 +40,7 @@ namespace ChatServer
             try
             {
                 IPAddress enderecoIP = IPAddress.Parse(txtIP.Text);
-                int portaHost = (int)numPorta.Value;
+                int portaHost = int.Parse(numPorta.Text);
 
                 Servidor mainServidor = new Servidor(enderecoIP, portaHost);
 
@@ -64,7 +64,7 @@ namespace ChatServer
             conectado = true;
             txtIP.Enabled = false;
             numPorta.Enabled = false;
-            btnStartServer.ForeColor = Color.Red;
+            btnStartServer.ForeColor = Color.FromArgb(255, 88, 88);
             btnStartServer.Text = "Sair";
         }
 
@@ -79,6 +79,11 @@ namespace ChatServer
             // Atualiza o logo com mensagens
             listaLog.Items.Add(strMensagem);
             listaLog.SetSelected(listaLog.Items.Count - 1, true);
+        }
+
+        private void numPorta_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
