@@ -72,11 +72,19 @@ namespace prjAps
                 Conectado = true;
 
                 //inicializa componentes
+                Point ptPnlOriginal = new Point(15, 6);
+                Point ptTxtOriginal = new Point(0, 0);
+                Point ptBtn = new Point(374, 0);
+                Size szBtn = new Size(114, 35);
+                btnEnviar.Location = ptBtn;
+                btnEnviar.Size = szBtn;
+                txtMensagem.Location = ptPnlOriginal;
+                pnlTxtMensagem.Location = ptTxtOriginal;
                 txtMensagem.Enabled = true;
                 btnEnviar.Enabled = true;
                 btnEnviar.ForeColor = Color.Black;
                 btnEnviar.Text = "Enviar";
-                txtLog.Enabled = false;
+                txtLog.ForeColor = Color.FromArgb(5, 215, 88);
 
                 //envia o nome do user para o servidor
                 StwEnvia = new StreamWriter(TcpServidor.GetStream());
@@ -109,7 +117,7 @@ namespace prjAps
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Olha o erro" + ex);
+                    Console.WriteLine("Error Message: \n" + ex);
                 }
                 //this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
             }
@@ -130,7 +138,7 @@ namespace prjAps
                 catch (Exception ex)
                 {
                     this.Invoke(new FechaConexaoCallBack(this.FechaConexao), new object[] { Motivo });
-                    Console.WriteLine("Olha o erro" + ex);
+                    Console.WriteLine("Error Message: \n" + ex);
                 }
 
                 // Sai do metodo
@@ -146,10 +154,9 @@ namespace prjAps
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Olha o erro" + ex);
-
                     // Atualiza o formulário com o motivo da falha da conexão
                     this.Invoke(new FechaConexaoCallBack(this.FechaConexao), new object[] { "Não foi possivel estabelecer conexão com o servidor! \r\nClique no botão Reconectar... Para tentar novamente.\r\n" });
+                    Console.WriteLine("Error Message: \n" + ex);
                 }
             }
         }
@@ -160,17 +167,25 @@ namespace prjAps
             // se não tiver motivo significa que apenas quer fechar a aplicação
             if (Motivo != null)
             {
+                txtLog.ForeColor = Color.Yellow;
                 txtLog.AppendText($"{Motivo} \r\n");
             }
-
-            //desabilita e abilita os campos apropriados
-            btnEnviar.ForeColor = Color.Red;
-            btnEnviar.Text = "Reconectar...";
-            txtMensagem.Enabled = false;
 
             //fecha os objetos
             Conectado = false;
             TcpServidor.Close();
+
+            //desabilita e abilita os campos apropriados
+            Point ptTxt = new Point(0, 64);
+            Point ptBtn = new Point(192, 0);
+            Size szBtn = new Size(129, 35);
+            txtMensagem.Location = ptTxt;
+            pnlTxtMensagem.Location = ptTxt;
+            btnEnviar.ForeColor = Color.Black;
+            btnEnviar.Text = "Reconectar";
+            btnEnviar.Location = ptBtn;
+            btnEnviar.Size = szBtn;
+            txtMensagem.Enabled = false;
 
             //n foi iniciado
             if (StwEnvia != null)
@@ -225,7 +240,7 @@ namespace prjAps
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            if (btnEnviar.ForeColor == Color.Red)
+            if (btnEnviar.Text == "Reconectar")
             {
                 this.Cursor = Cursors.WaitCursor;
                 InicializaConexao();
@@ -246,10 +261,5 @@ namespace prjAps
             }
         }
         #endregion
-
-        private void txtLog_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
