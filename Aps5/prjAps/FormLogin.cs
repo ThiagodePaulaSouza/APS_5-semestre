@@ -7,11 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.ComponentModel;
 namespace prjAps
 {
     public partial class FormLogin : Form
     {
+        public class RJButton : Button
+        {
+            private int borderSize = 0;
+            private int borderRadius = 20;
+            private Color borderColor = Color.PaleVioletRed;
+        }
         public bool TextWasChanged = false;
 
         public FormLogin()
@@ -36,6 +44,11 @@ namespace prjAps
         private void btnEntrar_Click(object sender, EventArgs e)
         {
 
+            
+        }
+
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
             string name, state, city;
             bool analista, denunciante;
             int type;
@@ -94,6 +107,11 @@ namespace prjAps
             {
                 MessageBox.Show("PREENCHA TODOS OS CAMPOS!");
             }
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

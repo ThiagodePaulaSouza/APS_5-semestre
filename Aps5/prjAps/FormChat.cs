@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Drawing.Drawing2D;
+
 
 namespace prjAps
 {
@@ -167,6 +169,7 @@ namespace prjAps
         // Atualiza a mensagem no atendimentoLog
         private void AtualizaLog(string strMensagem)
         {
+            strMensagem.ForeGroundColor = System.Drawing.Color.Red;
             txtLog.AppendText($"{strMensagem} \r\n");
         }
         #endregion
@@ -208,5 +211,10 @@ namespace prjAps
             }
         }
         #endregion
+
+        private void txtLog_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
