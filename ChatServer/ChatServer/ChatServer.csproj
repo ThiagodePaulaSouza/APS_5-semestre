@@ -60,6 +60,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Servidor.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="StatusChangedEventArgs.cs" />
     <EmbeddedResource Include="FormServer.resx">
       <DependentUpon>FormServer.cs</DependentUpon>
