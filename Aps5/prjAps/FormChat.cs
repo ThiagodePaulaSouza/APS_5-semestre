@@ -130,7 +130,6 @@ namespace prjAps
                 Motivo += ConResposta.Substring(2, ConResposta.Length - 2);
 
                 // Atualiza o formulário com o motivo da falha da conexão
-                // WTF como isso funciona! kkkkkkkkkkkkkkkkkk //
                 try
                 {
                     this.Invoke(new FechaConexaoCallBack(this.FechaConexao), new object[] { Motivo });
