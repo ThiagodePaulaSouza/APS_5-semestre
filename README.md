@@ -38,7 +38,7 @@ git clone https://github.com/ThiagodePaulaSouza/APS_5-semestre.git
 - Run as release **ChatServer**
 - Enjoy 😄
 
-## ~~🥳 Como Ajudar~~:
+## ~~🥳 How to help~~:
 
 ##### 1. Before Any Thing:
 
